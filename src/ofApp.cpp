@@ -24,6 +24,10 @@ void ofApp::setup(){
 //        lmat.setData(hira[3].data);
 
     
+    //set
+    tri1.open("/dev/tty.usbmodem1411");
+    
+    
     
     //test
 //    wchar_t hira = L'あ';//wide-character

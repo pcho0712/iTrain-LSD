@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "LEDMatrix.hpp"
 #include "LineDisplay.hpp"
+#include "TwistedRingInterface.hpp"
 #include "FontTo8x8.hpp"
 #include "font8x8-master/font8x8_basic.h"
 
@@ -28,6 +29,9 @@ public:
     
     LEDMatrix lmat;
     LineDisplay ldisp;
+    
+    TwistedRingInterface tri1,tri2;
+
     
     FontTo8x8 font[128];//font-book
     FontTo8x8 hira[128];//hiragana-font
