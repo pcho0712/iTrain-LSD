@@ -27,12 +27,16 @@ public:
     ofSerial serial;
     char bytesReadString[4];
     Status status;
+    
+    //debuf
+    unsigned char returnedBytes[256];
 
     TwistedRingInterface();
     ~TwistedRingInterface();
    
     bool open(string);
     void update();
+    void draw();
     
 };
 

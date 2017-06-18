@@ -48,7 +48,7 @@ void ofApp::update(){
     
     
     ldisp.uploadData();
-    
+    tri1.update();
     
     
 }
@@ -64,6 +64,8 @@ void ofApp::draw(){
     
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
+ 
+    tri1.draw();
     
 }
 
