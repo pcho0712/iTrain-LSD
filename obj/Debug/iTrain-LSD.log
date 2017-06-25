@@ -1,0 +1,28 @@
+﻿  ofApp.cpp
+src\ofApp.cpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\utils\ofLog.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\types\ofTypes.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\tapio\documents\of_v0.9.8_vs_release\libs\openframeworks\types\ofColor.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\tapio\documents\of_v0.9.8_vs_release\libs\openframeworks\math\ofVec3f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\tapio\documents\of_v0.9.8_vs_release\libs\openframeworks\math\ofVec2f.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\tapio\documents\of_v0.9.8_vs_release\libs\openframeworks\types\ofColor.h(778): warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\3d\ofMesh.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\graphics\ofPolyline.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\graphics\ofPath.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\3d\ofCamera.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+C:\Users\tapio\Documents\of_v0.9.8_vs_release\libs\openFrameworks\3d\ofEasyCam.h : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+c:\users\tapio\documents\of_v0.9.8_vs_release\apps\myapps\itrain-lsd\src\LineDisplay.hpp : warning C4819: ファイルは、現在のコード ページ (932) で表示できない文字を含んでいます。データの損失を防ぐために、ファイルを Unicode 形式で保存してください。
+     ライブラリ bin\iTrain-LSD_debug.lib とオブジェクト bin\iTrain-LSD_debug.exp を作成中
+  iTrain-LSD.vcxproj -> C:\Users\tapio\Documents\of_v0.9.8_vs_release\apps\myApps\iTrain-LSD\bin\iTrain-LSD_debug.exe
+  iTrain-LSD.vcxproj -> bin\iTrain-LSD_debug.pdb (Full PDB)
+  
+  	                   9	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\
+  	  新しいファイル		 2939392	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\assimp.dll
+  	  新しいファイル		 1266176	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\fmodex.dll
+  	  新しいファイル		 1312768	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\fmodexL.dll
+  	  新しいファイル		 5647872	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\FreeImage.dll
+  	  新しいファイル		  580608	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\freetype.dll
+  	  新しいファイル		  237568	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\glut32.dll
+  	  新しいファイル		 1178624	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\libeay32.dll
+  	  新しいファイル		  269824	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\ssleay32.dll
+  	  新しいファイル		   69632	C:\Users\tapio\Documents\of_v0.9.8_vs_release\export\vs\Win32\Zlib.dll

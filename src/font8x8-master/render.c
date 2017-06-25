@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <iostream>
+#include <sstream>
+#include <cstdlib>
 
 #include "font8x8_basic.h"
 
