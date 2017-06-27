@@ -23,21 +23,21 @@ void loop() {
   //下位6ビットがポテンショの値、右から6ビット目が符号
   if(nowpos > 0){
     sendByte = (unsigned char)nowpos;
-    bitWrite(sendByte, 6, 0);
+    bitWrite(sendByte, 5, 0);
   }else{
     nowpos = -nowpos;
-    bitWrite(sendByte, 6, 1);
+    bitWrite(sendByte, 5, 1);
   }
 
   //上から2bit目がスイッチのオンオフ
   if(digitalRead(13) == HIGH){
-    bitWrite(sendByte, 7, 0);
+    bitWrite(sendByte, 6, 0);
   }else{
-    bitWrite(sendByte, 7, 1);
+    bitWrite(sendByte, 6, 1);
   }
 
   //一番上のビットがID(０か１）
-  bitWrite(sendByte, 8, triId);
+  bitWrite(sendByte, 7, triId);
 
   Serial.write(sendByte);
 }
