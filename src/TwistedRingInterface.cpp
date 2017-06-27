@@ -66,6 +66,7 @@ void TwistedRingInterface::update(){
     }
 }
 
+
 void TwistedRingInterface::draw(){
     
     

@@ -4,6 +4,7 @@
 #include "LEDMatrix.hpp"
 #include "LineDisplay.hpp"
 #include "TwistedRingInterface.hpp"
+#include "REDModule.hpp"
 #include "FontTo8x8.hpp"
 #include "font8x8-master/font8x8_basic.h"
 
