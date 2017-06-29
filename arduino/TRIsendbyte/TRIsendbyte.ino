@@ -1,12 +1,14 @@
 int defaultValue = 0;
 unsigned char sendByte = 0;
-boolean triId = 0;
+bool triId = 0;
 
 void setup() {
   // put your setup code here, to run once:
    // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(13, INPUT);
+  pinMode(12, INPUT);
+  pinMode(13, OUTPUT);
+
 
   int i = 0;
   int sum = 0;
@@ -30,14 +32,17 @@ void loop() {
   }
 
   //上から2bit目がスイッチのオンオフ
-  if(digitalRead(13) == HIGH){
+  if(digitalRead(12) == HIGH){
     bitWrite(sendByte, 6, 0);
+    digitalWrite(13,HIGH);
   }else{
     bitWrite(sendByte, 6, 1);
+        digitalWrite(13,LOW);
   }
 
   //一番上のビットがID(０か１）
-  bitWrite(sendByte, 7, triId);
+  bitWrite(sendByte, 7, 1);
 
   Serial.write(sendByte);
+//Serial.write(0xAA);
 }

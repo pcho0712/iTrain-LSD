@@ -18,14 +18,10 @@ void ofApp::setup(){
         hira[ch] =*new FontTo8x8(hiragana);
         cout << hiragana << endl;
     }
-    
-    //set
-//    lmat.setData(font['a'].data);
-//        lmat.setData(hira[3].data);
 
     
     //set
-//    tri1.open("/dev/tty.usbmodem1410");
+    tri0.open("/dev/tty.usbmodem1411");
     
     red0.setID((int)0);
     red0.open("tty.usbserial-AK05ATII");
@@ -45,10 +41,7 @@ void ofApp::setup(){
     
     
     
-    
-    //test
-//    wchar_t hira = L'あ';//wide-character
-//    cout << L'あ';
+
     
     
     
@@ -58,14 +51,13 @@ void ofApp::setup(){
 void ofApp::update(){
     
     if(ofGetFrameNum()%5 == 0){
-        //    ldisp.moveDataToRight01();
         ldisp.moveDataToLeft01();
     }
     
     
     
     ldisp.uploadData();
-//    tri1.update();
+    tri0.update();
     
     
 }
@@ -76,15 +68,15 @@ void ofApp::draw(){
 //    lmat.dispMatrix(ofPoint(500,300),200);
     
     
-    ldisp.display(ofPoint(100,100));
-    ldisp.lmats[1]->dispMatrix(ofPoint(100,300),200);//debug
+    ldisp.display(ofPoint(100,200));
+    ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
     
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
  
-    tri1.draw();
+    tri0.draw();
     
-    red0.sendData(ldisp);
+//    red0.sendData(ldisp);
 //    red1.sendData(ldisp);
 //    red2.sendData(ldisp);
 

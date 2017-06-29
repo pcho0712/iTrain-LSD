@@ -23,9 +23,9 @@ class TwistedRingInterface{
 public:
     string port;
     bool connected=false;
-    int nBytesRead = 0;
+//    int nBytesRead = 0;
     ofSerial serial;
-    char bytesReadString[4];
+//    char bytesReadString[4];
     Status status;
     
     //debuf

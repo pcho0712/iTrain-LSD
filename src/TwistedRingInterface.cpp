@@ -23,7 +23,7 @@ TwistedRingInterface::~TwistedRingInterface(){
 
 bool TwistedRingInterface::open(string str){
     port = str;// "/dev/tty.usbmodem1411"
-    if(serial.setup(port,115200)){
+    if(serial.setup(port,9600)){
         connected = true;
         return true;
     }else{
@@ -34,48 +34,33 @@ bool TwistedRingInterface::open(string str){
 
 
 void TwistedRingInterface::update(){
-//    
-//    nBytesRead = 0;
-//    int nRead = 0;
-//    char bytesRead[3];
-//    unsigned char bytesReturned[3];
-//    
-//    memset(bytesReturned, 0, 3);
-//    memset(bytesReadString, 0, 4);
-//    
-//    // シリアル通信で受け取ったデータを読み込む
-//    while ((nRead = serial.readBytes(bytesReturned, 3)) > 0) {
-//        
-//        nBytesRead = nRead;
-//    };
-//    
-//    if (nBytesRead > 0) {
-//        
-//        memcpy(bytesReadString, bytesReturned, 3);
-//        string x = bytesReadString;
-//    }
     
-    //debug
-
-//    unsigned char returnedByte[256];
-    serial.readBytes(returnedBytes,256);
     
-    //send 255 char
-    for(unsigned char i=0;i<8*16;i++){
-    serial.writeByte(i);
+    
+    if(serial.available()>0){
+        unsigned char byte = serial.readByte();
+        status.id = (byte & 0x80)>>7;//MSB
+        status.sw = (byte & 0x40)>>6 ? true : false;//MSB-1
+        char sign = byte & 0x20 <<2;//MSB-2: sign of position
+        status.pos = sign|(byte & 0x1F);//LSB to MSB-3
+     cout << static_cast<std::bitset<8> >(byte) <<endl;
     }
+ 
+    
 }
 
 
 void TwistedRingInterface::draw(){
     
-    
     // 送られてきた文字列を表示
     string msg;
     msg += "connected status: "+ofToString(connected) + "\n";
-//    msg += ofToString(nBytesRead) + " [bytes]" + "\n";
-    msg += "returned: "+ ofToString(returnedBytes) + "\n";
-    msg += "read: " + ofToString(bytesReadString);
+    msg += "port: "+ofToString(port) + "\n";
+        msg += "status id: "+ to_string(status.id) + "\n";
+    msg += "status sw: "+ to_string(status.sw) + "\n";
+    msg += "status pos: "+ to_string(status.pos) + "\n";
+
+//    msg += "read: " + ofToString(bytesReadString);
     ofSetColor(0);
     ofDrawBitmapString(msg, 100, 50);
     
