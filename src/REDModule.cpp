@@ -47,7 +47,7 @@ void REDModule::sendData(LineDisplay& ld){
     //    serial.writeByte(START_BYTE);//start-byte
     for(int iLed=0;iLed<8;iLed++){
         for(int iLine=0;iLine<8;iLine++){
-            unsigned char ch = ld.lmats[led_id[iLed]]->getLine(iLine);
+            unsigned char ch = ld.lmats[led_id[iLed]]->getColumn(iLine);
             serial.writeByte(ch);
  //           serial.writeByte(0xFF);
 //cout << "here";

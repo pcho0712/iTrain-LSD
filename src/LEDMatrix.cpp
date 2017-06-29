@@ -61,6 +61,27 @@ unsigned char LEDMatrix::getLine(int iLine){
     
 }
 
+unsigned char LEDMatrix::getRow(int iLine){
+    return getLine(iLine);
+}
+
+unsigned char LEDMatrix::getColumn(int iLine){
+    unsigned char buf=0;
+    
+    buf += data[0][iLine] * 0x01;
+    buf += data[1][iLine] * 0x02;
+    buf += data[2][iLine] * 0x04;
+    buf += data[3][iLine] * 0x08;
+    buf += data[4][iLine] * 0x10;
+    buf += data[5][iLine] * 0x20;
+    buf += data[6][iLine] * 0x40;
+    buf += data[7][iLine] * 0x80;
+    
+    return buf;
+
+}
+
+
 
 
 

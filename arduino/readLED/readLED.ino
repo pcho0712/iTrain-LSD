@@ -62,6 +62,7 @@ void loop() {
         LED_Ada88_cnv(LedDots[i], LedDots2[i]);
         LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
       }
+      flag_serial = !flag_serial;
     } else {
       for (int i = 4; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
@@ -70,6 +71,7 @@ void loop() {
         LED_Ada88_cnv(LedDots[i], LedDots2[i]);
         LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
       }
+      flag_serial = !flag_serial;
     }
   }
 }

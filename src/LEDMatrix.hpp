@@ -28,6 +28,9 @@ public:
     void setDispPos(ofPoint);
     
     unsigned char getLine(int);
+    unsigned char getRow(int);
+    unsigned char getColumn(int);
+
     
     void dispMatrix();
     void dispMatrix(ofPoint,int);

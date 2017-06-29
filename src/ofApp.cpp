@@ -37,7 +37,8 @@ void ofApp::setup(){
 
     
     //ldisp
-    string str = "hello, everyone!";
+//    string str = "hello, everyone!";
+    string str = "1111   0000   ";
     TextContent tx(str);
     ldisp.setText(tx);
     
@@ -76,7 +77,7 @@ void ofApp::draw(){
     
     
     ldisp.display(ofPoint(100,100));
-    ldisp.lmats[0]->dispMatrix(ofPoint(100,300),200);//debug
+    ldisp.lmats[1]->dispMatrix(ofPoint(100,300),200);//debug
     
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
