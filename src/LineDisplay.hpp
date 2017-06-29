@@ -16,12 +16,12 @@
 class LineDisplay{
 
     public:
-    const static int length=10;
-    int data[8][8*length];//これを操作して毎フレームlmatsに割り付ける
+    const static int length=16;
+    unsigned char data[8][8*length];//これを操作して毎フレームlmatsに割り付ける
     const int dispWidth = 8*length;
     const int dispHeight = 8;
     
-    int matSize=80;
+    int matSize=40;
     vector<LEDMatrix*> lmats;
     ofPoint dispPos;
    
@@ -36,7 +36,7 @@ class LineDisplay{
     //data operation
     void moveDataToRight01();
     void moveDataToLeft01();
-    void addDataAtLast(int[8][8]);
+    void addDataAtLast(unsigned char[8][8]);
 
 };
 

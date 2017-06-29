@@ -17,7 +17,7 @@ class FontTo8x8{
 public:
     FONT8X8 f8;
     unsigned char ch;//unicode
-    int data[8][8];//font
+    unsigned char data[8][8];//font
     
     FontTo8x8(unsigned char);
     FontTo8x8(unsigned wchar_t);

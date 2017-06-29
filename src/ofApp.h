@@ -28,9 +28,10 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    LEDMatrix lmat;
+//    LEDMatrix lmat;
     LineDisplay ldisp;
-    
+
+    REDModule red0,red1,red2;
     TwistedRingInterface tri1,tri2;
 
     

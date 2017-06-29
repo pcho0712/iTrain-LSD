@@ -58,7 +58,7 @@ void LineDisplay::setRandomData(){
 
 
 void LineDisplay::moveDataToRight01(){
-    int buf=0;
+    unsigned char buf=0;
     for(int y=0;y<dispHeight;y++){
         buf = data[y][dispWidth-1];
         
@@ -72,7 +72,7 @@ void LineDisplay::moveDataToRight01(){
 
 
 void LineDisplay::moveDataToLeft01(){
-    int buf=0;
+    unsigned char buf=0;
     for(int y=0;y<dispHeight;y++){
         buf = data[y][0];
         
@@ -84,7 +84,7 @@ void LineDisplay::moveDataToLeft01(){
     }
 }
 
-void LineDisplay::addDataAtLast(int d[8][8]){
+void LineDisplay::addDataAtLast(unsigned char d[8][8]){
     int idx = length-1;
     for(int y=0;y<8;y++){
         for(int x=0;x<8;x++){

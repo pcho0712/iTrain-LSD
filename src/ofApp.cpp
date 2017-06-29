@@ -20,12 +20,23 @@ void ofApp::setup(){
     }
     
     //set
-    lmat.setData(font['a'].data);
+//    lmat.setData(font['a'].data);
 //        lmat.setData(hira[3].data);
 
     
     //set
     tri1.open("/dev/tty.usbmodem1411");
+    
+    red0.setID((int)0);
+    red0.open("/dev/tty.usbmodem1412");
+    red1.setID((int)1);
+    red1.open("/dev/tty.usbmodem1413");
+//    red2.setID((int)2);
+//    red2.open("/dev/tty.usbmodem1414");
+    
+
+    
+    
     
     
     
@@ -40,7 +51,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    if(ofGetFrameNum()%10 == 0){
+    if(ofGetFrameNum()%5 == 0){
         //    ldisp.moveDataToRight01();
         ldisp.moveDataToLeft01();
     }
@@ -56,7 +67,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    lmat.dispMatrix(ofPoint(500,300),200);
+//    lmat.dispMatrix(ofPoint(500,300),200);
     
     
     ldisp.display(ofPoint(100,100));
@@ -67,12 +78,18 @@ void ofApp::draw(){
  
     tri1.draw();
     
+    red0.sendData(ldisp);
+    red1.sendData(ldisp);
+//    red2.sendData(ldisp);
+
+
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     char ch = (char) key;
-    lmat.setData(font[ch].data);
+//    lmat.setData(font[ch].data);
     ldisp.addDataAtLast(font[ch].data);
     
 }

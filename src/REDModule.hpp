@@ -21,13 +21,15 @@ public:
     char id;//module id
     char led_id[8];//
     bool connected=false;
-
     
-    REDModule(char);
+    static constexpr unsigned char START_BYTE = 0xAA;
+    
+    REDModule();
     ~REDModule();
     
     bool open(string);
-    bool sendData(LineDisplay&);
+    void setID(int);
+    void sendData(LineDisplay&);
     
 };
 
