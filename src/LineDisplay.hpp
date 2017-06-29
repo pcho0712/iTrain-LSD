@@ -40,7 +40,7 @@ public:
 class LineDisplay{
 
     public:
-    const static int length=16;
+    const static int length=8;
     unsigned char data[8][8*length];//これを操作して毎フレームlmatsに割り付ける
     const int dispWidth = 8*length;
     const int dispHeight = 8;

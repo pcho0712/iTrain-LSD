@@ -24,7 +24,7 @@ void ofApp::setup(){
     tri0.open("/dev/tty.usbmodem1411");
     
     red0.setID((int)0);
-    red0.open("tty.usbserial-AK05ATII");
+    red0.open("tty.usbserial-A105AC8S");
 //    red1.setID((int)1);
 //    red1.open("/dev/tty.usbmodem1413");
 //    red2.setID((int)2);
@@ -34,7 +34,7 @@ void ofApp::setup(){
     
     //ldisp
 //    string str = "hello, everyone!";
-    string str = "1111   0000   ";
+    string str = "01234567";
     TextContent tx(str);
     ldisp.setText(tx);
     
@@ -50,14 +50,14 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    if(ofGetFrameNum()%5 == 0){
+    if(ofGetFrameNum()%3 == 0){
         ldisp.moveDataToLeft01();
     }
     
     
     
     ldisp.uploadData();
-    tri0.update();
+//    tri0.update();
     
     
 }
@@ -74,9 +74,9 @@ void ofApp::draw(){
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
  
-    tri0.draw();
+//    tri0.draw();
     
-//    red0.sendData(ldisp);
+    red0.sendData(ldisp);
 //    red1.sendData(ldisp);
 //    red2.sendData(ldisp);
 

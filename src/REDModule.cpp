@@ -39,6 +39,17 @@ void REDModule::setID(int _id){
     for(int i=0;i<8;i++){
         led_id[i] = id*8+i;
     }
+    /*
+    led_id[0]=7;
+    led_id[1]=6;
+    led_id[2]=5;
+    led_id[3]=4;
+    led_id[4]=3;
+    led_id[5]=2;
+    led_id[6]=1;
+    led_id[7]=0;
+*/
+    
 }
 
 

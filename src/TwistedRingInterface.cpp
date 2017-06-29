@@ -39,11 +39,12 @@ void TwistedRingInterface::update(){
     
     if(serial.available()>0){
         unsigned char byte = serial.readByte();
+        cout << static_cast<std::bitset<8> >(byte) <<endl;
+
         status.id = (byte & 0x80)>>7;//MSB
         status.sw = (byte & 0x40)>>6 ? true : false;//MSB-1
         char sign = byte & 0x20 <<2;//MSB-2: sign of position
         status.pos = sign|(byte & 0x1F);//LSB to MSB-3
-     cout << static_cast<std::bitset<8> >(byte) <<endl;
     }
  
     
