@@ -30,6 +30,7 @@ public:
     bool open(string);
     void setID(int);
     void sendData(LineDisplay&);
+    void readForDebug();
     
 };
 

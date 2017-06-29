@@ -17,8 +17,8 @@ LineDisplay::LineDisplay(){
         setRandomData();
         //        lmats[idx]->setMatSize(120);
     }
-//    uploadData();
-    
+    //    uploadData();
+    initFontBook();
 }
 
 
@@ -52,6 +52,25 @@ void LineDisplay::setRandomData(){
         for(int x=0;x<dispWidth;x++){
             data[y][x]= ofRandom(0,1)>0.5 ? 1:0;
         }
+    }
+}
+
+
+void LineDisplay::setText(TextContent txt){
+    for(int n=0;n<length;n++){
+        unsigned char ch = txt.get(n);
+        for(int y=0;y<8;y++){
+            for(int x=0;x<8;x++){
+                data[y][n*8+x] = fontbook[ch].data[y][x];
+            }
+        }
+    }
+}
+
+void LineDisplay::initFontBook(){
+    //create font book
+    for(unsigned char ch = 0;ch<128;ch++){
+        fontbook[ch] =*new FontTo8x8(ch);
     }
     
 }
@@ -91,9 +110,39 @@ void LineDisplay::addDataAtLast(unsigned char d[8][8]){
             data[y][x+idx*8]=d[y][x];
         }
     }
-        
 }
 
+
+
+////////////////////
+
+
+TextContent::TextContent(){
+    
+}
+
+TextContent::TextContent(string str){
+    setText(str);
+}
+TextContent::~TextContent(){
+    
+}
+
+//void setLength(unsigned char _len){
+//    length = _len;
+//}
+
+void TextContent::setText(string str){
+    text = str;
+}
+
+string TextContent::getText(){
+    return text;
+}
+
+unsigned char TextContent::get(int n){
+    return text[n];
+}
 
 
 

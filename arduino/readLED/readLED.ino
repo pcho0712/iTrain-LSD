@@ -40,14 +40,21 @@ void setup()
 
   prenum = 0;
   nownum = 1;
+  
+  pinMode(13,OUTPUT);
 }
 //**************メインループ*************************************************
 
 void loop() {
+  
   if(Serial.available() >= 63){
+      digitalWrite(13,HIGH);//debug
+
     for(int i = 0; i < 8; i++){
-      for(int j = 0; j < 8; i++){
-          LedDots[i][j] = Serial.read();
+      for(int j = 0; j < 8; j++){
+         LedDots[i][j] = Serial.read();
+      //        LedDots[i][j] = 0xAA;
+
       }
       LED_Ada88_cnv(LedDots[i], LedDots2[i]);
       LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
