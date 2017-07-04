@@ -34,7 +34,9 @@ void ofApp::setup(){
     
     //ldisp
     //    string str = "hello, everyone!";
-    string str = "Hello, everyone?";
+    string str = "0-------1-------2-------";
+//    string str = "**";
+
     TextContent tx(str);
     ldisp.setText(tx);
     
@@ -51,7 +53,7 @@ void ofApp::setup(){
 void ofApp::update(){
     
     if(ofGetFrameNum()%3 == 0){
-        ldisp.moveDataToLeft01();
+//        ldisp.moveDataToLeft01();
     }
     
     
@@ -88,8 +90,12 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
     char ch = (char) key;
     //    lmat.setData(font[ch].data);
-    ldisp.addDataAtLast(font[ch].data);
+//    ldisp.addDataAtLast(font[ch].data);
     
+    if(ch == '1')  ldisp.moveDataToLeft01();
+    if(ch == '2')  ldisp.moveDataToRight01();
+
+
 }
 
 //--------------------------------------------------------------
@@ -109,7 +115,6 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    
     
 }
 
