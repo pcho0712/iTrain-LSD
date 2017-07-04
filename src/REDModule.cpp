@@ -20,7 +20,6 @@ REDModule::~REDModule(){
 }
 
 
-
 bool REDModule::open(string _port){
     port = _port;// "/dev/tty.usbmodem1411"
     if(serial.setup(port,115200)){
@@ -39,6 +38,7 @@ void REDModule::setID(int _id){
     for(int i=0;i<8;i++){
         led_id[i] = id*8+i;
     }
+    
     /*
     led_id[0]=7;
     led_id[1]=6;

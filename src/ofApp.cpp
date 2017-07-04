@@ -18,30 +18,30 @@ void ofApp::setup(){
         hira[ch] =*new FontTo8x8(hiragana);
         cout << hiragana << endl;
     }
-
+    
     
     //set
     tri0.open("/dev/tty.usbmodem1411");
     
     red0.setID((int)0);
     red0.open("tty.usbserial-A105AC8S");
-//    red1.setID((int)1);
-//    red1.open("/dev/tty.usbmodem1413");
-//    red2.setID((int)2);
-//    red2.open("/dev/tty.usbmodem1414");
+    red1.setID((int)1);
+    red1.open("tty.usbserial-A105ABLP");
+    red2.setID((int)2);
+    red2.open("tty.usbserial-AK05ATII");
     
-
+    
     
     //ldisp
-//    string str = "hello, everyone!";
-    string str = "01234567";
+    //    string str = "hello, everyone!";
+    string str = "Hello, everyone?";
     TextContent tx(str);
     ldisp.setText(tx);
     
     
     
     
-
+    
     
     
     
@@ -57,7 +57,7 @@ void ofApp::update(){
     
     
     ldisp.uploadData();
-//    tri0.update();
+    //    tri0.update();
     
     
 }
@@ -65,7 +65,7 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-//    lmat.dispMatrix(ofPoint(500,300),200);
+    //    lmat.dispMatrix(ofPoint(500,300),200);
     
     
     ldisp.display(ofPoint(100,200));
@@ -73,21 +73,21 @@ void ofApp::draw(){
     
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
- 
-//    tri0.draw();
+    
+    //    tri0.draw();
     
     red0.sendData(ldisp);
-//    red1.sendData(ldisp);
-//    red2.sendData(ldisp);
-
-
+    red1.sendData(ldisp);
+    red2.sendData(ldisp);
+    
+    
     
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     char ch = (char) key;
-//    lmat.setData(font[ch].data);
+    //    lmat.setData(font[ch].data);
     ldisp.addDataAtLast(font[ch].data);
     
 }
