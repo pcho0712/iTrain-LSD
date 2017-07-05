@@ -37,15 +37,15 @@ void REDModule::setID(int _id){
     id=_id;
     int s = id*8;
     
-
+    
     //sequence
-//    led_id[0]=s+6;
-//    led_id[1]=s+5;
-//    led_id[2]=s+4;
-//    led_id[3]=s+3;
-//    led_id[4]=s+2;
-//    led_id[5]=s+1;
-//    led_id[6]=s+0;
+    //    led_id[0]=s+6;
+    //    led_id[1]=s+5;
+    //    led_id[2]=s+4;
+    //    led_id[3]=s+3;
+    //    led_id[4]=s+2;
+    //    led_id[5]=s+1;
+    //    led_id[6]=s+0;
     led_id[0]=s+7;
     led_id[1]=s+6;
     led_id[2]=s+5;
@@ -67,13 +67,23 @@ void REDModule::setID(int _id){
 
 void REDModule::sendData(LineDisplay& ld){
     
-    //    serial.writeByte(START_BYTE);//start-byte
-    for(int iLed=0;iLed<8;iLed++){
+    //send 64 Byte for arduino
+    
+    //former 1+32 byte
+    serial.writeByte(START_FORMER_BYTE);//start-byte
+    for(int iLed=0;iLed<4;iLed++){
         for(int iLine=0;iLine<8;iLine++){
             unsigned char ch = ld.lmats[led_id[iLed]]->getColumn(iLine);
             serial.writeByte(ch);
-            //           serial.writeByte(0xFF);
-            //cout << "here";
+        }
+    }
+    
+    //latter 1+32 byte
+    serial.writeByte(START_LATTER_BYTE);//start-byte
+    for(int iLed=4;iLed<8;iLed++){
+        for(int iLine=0;iLine<8;iLine++){
+            unsigned char ch = ld.lmats[led_id[iLed]]->getColumn(iLine);
+            serial.writeByte(ch);
         }
     }
     
