@@ -4,5 +4,4 @@ iTrain.xcodeproj/project.xcworkspace/xcuserdata/matsuikatsufumi.xcuserdatad/User
 iTrain.xcodeproj/xcshareddata/xcschemes/iTrain Debug.xcscheme
 iTrain.xcodeproj/xcshareddata/xcschemes/iTrain Release.xcscheme
 iTrain.xcodeproj/xcuserdata/matsuikatsufumi.xcuserdatad/xcschemes/xcschememanagement.plist
-bin/iTrainDebug.app/Contents/Info.plist
-bin/iTrainDebug.app/Contents/PkgInfo
+bin/*
