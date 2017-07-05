@@ -1,0 +1,6 @@
+*.tiff
+iTrain.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+iTrain.xcodeproj/project.xcworkspace/xcuserdata/matsuikatsufumi.xcuserdatad/UserInterfaceState.xcuserstate
+iTrain.xcodeproj/xcshareddata/xcschemes/iTrain Debug.xcscheme
+iTrain.xcodeproj/xcshareddata/xcschemes/iTrain Release.xcscheme
+iTrain.xcodeproj/xcuserdata/matsuikatsufumi.xcuserdatad/xcschemes/xcschememanagement.plist
