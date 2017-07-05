@@ -22,7 +22,9 @@ public:
     char led_id[8];//
     bool connected=false;
     
-    static constexpr unsigned char START_BYTE = 0xAA;
+    static constexpr unsigned char START_FORMER_BYTE = 0xAA;
+    static constexpr unsigned char START_LATTER_BYTE = 0xAB;
+
     
     REDModule();
     ~REDModule();

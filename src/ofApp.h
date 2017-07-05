@@ -32,7 +32,7 @@ public:
     LineDisplay ldisp;
 
     REDModule red0,red1,red2;
-    TwistedRingInterface tri0,tri1;
+    TwistedRingInterface tri;
 
     
     FontTo8x8 font[128];//font-book

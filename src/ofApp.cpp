@@ -20,9 +20,10 @@ void ofApp::setup(){
     }
     
     
-    //set
-    tri0.open("/dev/tty.usbmodem1411");
+    //set TRI
+    tri.open("/dev/tty.usbmodem1421");
     
+    //set RED
     red0.setID((int)0);
     red0.open("tty.usbserial-A105AC8S");
     red1.setID((int)1);
@@ -35,8 +36,6 @@ void ofApp::setup(){
     //ldisp
     //    string str = "hello, everyone!";
     string str = "0-------1-------2-------";
-//    string str = "**";
-
     TextContent tx(str);
     ldisp.setText(tx);
     
@@ -52,14 +51,36 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    if(ofGetFrameNum()%3 == 0){
+    
+    //TRI loding
+    tri.update();
+
+    
+//    if(ofGetFrameNum()%3 == 0){
 //        ldisp.moveDataToLeft01();
-    }
+//    }
+    
+    //(option) TRI control test
+    if(tri.status[0].pos>20)   ldisp.moveDataToLeft01();
+    if(tri.status[0].pos<-20)   ldisp.moveDataToRight01();
+/*    if(tri.status[0].sw){
+        string str = "--------SWITCH-ON--------";
+        TextContent tx(str);
+        ldisp.setText(tx);
+    }else{
+        string str = "0-------1-------2-------";
+        TextContent tx(str);
+        ldisp.setText(tx);
+    }*/
     
     
-    
+    //RED buffer upload to LED buffer
     ldisp.uploadData();
-    //    tri0.update();
+    
+    //Serial Communication
+    red0.sendData(ldisp);
+    red1.sendData(ldisp);
+    red2.sendData(ldisp);
     
     
 }
@@ -73,14 +94,14 @@ void ofApp::draw(){
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
     
+    tri.draw();
+
+    
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
     
-    //    tri0.draw();
     
-    red0.sendData(ldisp);
-    red1.sendData(ldisp);
-    red2.sendData(ldisp);
+
     
     
     
@@ -92,8 +113,8 @@ void ofApp::keyPressed(int key){
     //    lmat.setData(font[ch].data);
 //    ldisp.addDataAtLast(font[ch].data);
     
-    if(ch == '1')  ldisp.moveDataToLeft01();
-    if(ch == '2')  ldisp.moveDataToRight01();
+//    if(ch == '1')  ldisp.moveDataToLeft01();
+//    if(ch == '2')  ldisp.moveDataToRight01();
 
 
 }
