@@ -15,17 +15,23 @@
 
 class LEDMatrix{
 public:
-    int data[8][8];
+    unsigned char data[8][8];
     ofPoint dispPos;
     int matSize = 200;
     
     LEDMatrix();
     ~LEDMatrix();
     
-    void setData(int[8][8]);
+    void setData(unsigned char[8][8]);
     void setMatSize(int);
     void setRandomData();
     void setDispPos(ofPoint);
+    
+    unsigned char getLine(int);
+    unsigned char getRow(int);
+    unsigned char getColumn(int);
+
+    
     void dispMatrix();
     void dispMatrix(ofPoint,int);
     
@@ -36,7 +42,7 @@ public:
 
 
 ////disp-data-sample
-//int ldata[8][8] = {
+//unsigned char ldata[8][8] = {
 //    {1,1,1,1,0,0,0,0},
 //    {1,1,0,0,1,1,0,0},
 //    {1,1,1,1,0,0,0,0},

@@ -4,6 +4,7 @@
 #include "LEDMatrix.hpp"
 #include "LineDisplay.hpp"
 #include "TwistedRingInterface.hpp"
+#include "REDModule.hpp"
 #include "FontTo8x8.hpp"
 #include "font8x8-master/font8x8_basic.h"
 
@@ -27,10 +28,11 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    LEDMatrix lmat;
+//    LEDMatrix lmat;
     LineDisplay ldisp;
-    
-    TwistedRingInterface tri1,tri2;
+
+    REDModule red0,red1,red2;
+    TwistedRingInterface tri;
 
     
     FontTo8x8 font[128];//font-book

@@ -16,23 +16,28 @@
 struct Status{
     char id;//tri-id
     bool sw;//switch on/off
-    char pos;//potentio-meter
+    signed char pos;//potentio-meter
 };
 
 class TwistedRingInterface{
 public:
     string port;
     bool connected=false;
-    int nBytesRead = 0;
     ofSerial serial;
-    char bytesReadString[4];
-    Status status;
+    Status status[2];//tri0
+
+    
+    //debuf
+    static constexpr unsigned char START_BYTE = 0xFF;
+    unsigned char returnedBytes[256];
 
     TwistedRingInterface();
     ~TwistedRingInterface();
    
     bool open(string);
     void update();
+    void draw();
+    string moduleInfo(int);
     
 };
 

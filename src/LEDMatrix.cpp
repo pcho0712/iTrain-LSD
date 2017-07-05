@@ -17,7 +17,7 @@ LEDMatrix::~LEDMatrix(){
 }
 
 
-void LEDMatrix::setData(int array[8][8]){
+void LEDMatrix::setData(unsigned char array[8][8]){
     for(int y=0;y<8;y++){
         for(int x=0;x<8;x++){
             data[y][x]=array[y][x];
@@ -43,6 +43,46 @@ void LEDMatrix::setRandomData(){
 void LEDMatrix::setDispPos(ofPoint ofp){
     dispPos = ofp;
 }
+
+
+unsigned char LEDMatrix::getLine(int iLine){
+    unsigned char buf=0;
+    
+    buf += data[iLine][0] * 0x01;
+    buf += data[iLine][1] * 0x02;
+    buf += data[iLine][2] * 0x04;
+    buf += data[iLine][3] * 0x08;
+    buf += data[iLine][4] * 0x10;
+    buf += data[iLine][5] * 0x20;
+    buf += data[iLine][6] * 0x40;
+    buf += data[iLine][7] * 0x80;
+
+    return buf;
+    
+}
+
+unsigned char LEDMatrix::getRow(int iLine){
+    return getLine(iLine);
+}
+
+unsigned char LEDMatrix::getColumn(int iLine){
+    unsigned char buf=0;
+    
+    buf += data[0][iLine] * 0x01;
+    buf += data[1][iLine] * 0x02;
+    buf += data[2][iLine] * 0x04;
+    buf += data[3][iLine] * 0x08;
+    buf += data[4][iLine] * 0x10;
+    buf += data[5][iLine] * 0x20;
+    buf += data[6][iLine] * 0x40;
+    buf += data[7][iLine] * 0x80;
+    
+    return buf;
+
+}
+
+
+
 
 
 void LEDMatrix::dispMatrix(){

@@ -12,7 +12,7 @@
 
 
 TwistedRingInterface::TwistedRingInterface(){
-
+    
 }
 
 
@@ -23,7 +23,7 @@ TwistedRingInterface::~TwistedRingInterface(){
 
 bool TwistedRingInterface::open(string str){
     port = str;// "/dev/tty.usbmodem1411"
-    if(serial.setup(port,9600)){
+    if(serial.setup(port,115200)){
         connected = true;
         return true;
     }else{
@@ -33,29 +33,70 @@ bool TwistedRingInterface::open(string str){
 }
 
 
-
-
 void TwistedRingInterface::update(){
     
-    nBytesRead = 0;
-    int nRead = 0;
-    char bytesRead[3];
-    unsigned char bytesReturned[3];
     
-    memset(bytesReturned, 0, 3);
-    memset(bytesReadString, 0, 4);
+    //まずはじめに：シリアルバッファがたまりすぎていたら捨てる作業
+    while(serial.available()>10) serial.readByte();
     
-    // シリアル通信で受け取ったデータを読み込む
-    while ((nRead = serial.readBytes(bytesReturned, 3)) > 0) {
+    if(serial.available()>1){
         
-        nBytesRead = nRead;
-    };
-    
-    if (nBytesRead > 0) {
+        //parse original protocol
         
-        memcpy(bytesReadString, bytesReturned, 3);
-        string x = bytesReadString;
+        if(serial.readByte() == START_BYTE){  //start-byte
+            unsigned char byte = serial.readByte();            //data-byte
+            cout << static_cast<std::bitset<8>>(byte) << endl;
+
+            //parsing
+            char id = (byte & 0x80)>>7;//MSB
+            char sw = (byte & 0x40)>>6 ? true : false;//MSB-1
+            char sign = byte & 0x20 <<2;//MSB-2: sign of position
+            signed char pos = sign|(byte & 0x1F);//LSB to MSB-3
+//            cout << static_cast<std::bitset<8>>(pos) << endl;
+
+            
+            //store
+            status[id].id = id;
+            status[id].sw = sw;
+            status[id].pos = pos;
+        }
+        
     }
     
+    
 }
+
+
+void TwistedRingInterface::draw(){
+    
+    // 送られてきた文字列を表示
+    string msg;
+    if(connected){
+        msg += "connected status: "+ofToString(connected) + "\n";
+        msg += "port: "+ofToString(port) + "\n";
+        msg += "serial.available(): " +ofToString(serial.available())+ "\n";
+        msg+= moduleInfo(0);
+        msg+= moduleInfo(1);
+    }else{
+        msg += "no connected TRI!";
+    }
+    //    msg += "read: " + ofToString(bytesReadString);
+    ofSetColor(0);
+    ofDrawBitmapString(msg, 100, 50);
+    
+}
+
+string TwistedRingInterface::moduleInfo(int i){
+    string msg;
+    
+    //status
+        msg += "status id: "+ to_string(status[i].id) + ", ";
+        msg += "sw: "+ to_string(status[i].sw) + ", ";
+        msg += "pos: "+ to_string(status[i].pos) + "\n";
+    return msg;
+}
+
+
+
+
 
