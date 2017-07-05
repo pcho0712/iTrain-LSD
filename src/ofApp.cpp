@@ -113,8 +113,8 @@ void ofApp::keyPressed(int key){
     //    lmat.setData(font[ch].data);
 //    ldisp.addDataAtLast(font[ch].data);
     
-//    if(ch == '1')  ldisp.moveDataToLeft01();
-//    if(ch == '2')  ldisp.moveDataToRight01();
+    if(ch == '1')  ldisp.moveDataToLeft01();
+    if(ch == '2')  ldisp.moveDataToRight01();
 
 
 }

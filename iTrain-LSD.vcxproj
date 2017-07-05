@@ -176,6 +176,7 @@
     <ClCompile Include="src\FontTo8x8.cpp" />
     <ClCompile Include="src\LEDMatrix.cpp" />
     <ClCompile Include="src\LineDisplay.cpp" />
+    <ClCompile Include="src\REDModule.cpp" />
     <ClCompile Include="src\TwistedRingInterface.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
     <ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="src\FontTo8x8.hpp" />
     <ClInclude Include="src\LEDMatrix.hpp" />
     <ClInclude Include="src\LineDisplay.hpp" />
+    <ClInclude Include="src\REDModule.hpp" />
     <ClInclude Include="src\TwistedRingInterface.hpp" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
