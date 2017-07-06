@@ -10,6 +10,7 @@
 #define Stage_hpp
 
 #include <stdio.h>
+#include <ofMain.h>
 
 
 class Stage{
@@ -24,7 +25,7 @@ public:
     void moveLeft();
 
     //debug
-    void setRandamBuffer();
+    void setRandomBuffer();
     
     
 };

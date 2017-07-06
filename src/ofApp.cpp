@@ -37,6 +37,9 @@ void ofApp::setup(){
     
     
     
+    //game manager
+
+    
     
     
     
@@ -51,19 +54,17 @@ void ofApp::update(){
     tri.update();
     
     //(option) TRI control test
-    if(tri.status[0].pos<-20)   ldisp.moveDataToLeft01();
-    if(tri.status[0].pos>20)   ldisp.moveDataToRight01();
-    if(tri.status[1].pos<-20)   ldisp.moveDataToLeft01();
-    if(tri.status[1].pos>20)   ldisp.moveDataToRight01();
-/*    if(tri.status[0].sw){
-        string str = "--------SWITCH-ON--------";
-        TextContent tx(str);
-        ldisp.setText(tx);
-    }else{
-        string str = "0-------1-------2-------";
-        TextContent tx(str);
-        ldisp.setText(tx);
-    }*/
+//    if(tri.status[0].pos<-20)   ldisp.moveDataToLeft01();
+//    if(tri.status[0].pos>20)   ldisp.moveDataToRight01();
+//    if(tri.status[1].pos<-20)   ldisp.moveDataToLeft01();
+//    if(tri.status[1].pos>20)   ldisp.moveDataToRight01();
+
+    
+    //GameManager
+    gm.updateInputStatus(tri.status);
+    gm.updateGameLogic();
+    gm.updateWindowBuffer();
+    
     
     
     //RED buffer upload to LED buffer

@@ -10,7 +10,7 @@
 
 
 
-void LineDisplay::moveLeft(){
+void Stage::moveLeft(){
     unsigned char buf=0;
     for(int y=0;y<height;y++){
         buf = buffer[y][0];
@@ -26,7 +26,7 @@ void LineDisplay::moveLeft(){
 void Stage::setRandomBuffer(){
     for(int y=0;y<height;y++){
         for(int x=0;x<width;x++){
-            data[y][x]= ofRandom(0,1)>0.5 ? 1:0;
+            buffer[y][x]= ofRandom(0,1)>0.7 ? 1:0;
         }
     }
 }
