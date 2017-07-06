@@ -9,7 +9,9 @@
 #include "Stage.hpp"
 
 Stage::Stage(){
-    setRandomBuffer();//debug
+//    setRandomBuffer();//debug
+    setGround();
+    setRandomWall(0.8);
 }
 
 void Stage::moveLeft(){
@@ -22,6 +24,34 @@ void Stage::moveLeft(){
         buffer[y][width-1] = buf;
     }
 }
+
+
+
+//util
+
+void Stage::setGround(){
+    
+    for(int x=0;x<width;x++){
+        buffer[7][x] = 1;
+    }
+}
+
+void Stage::setWall(int x,int h){
+    
+    for(int y=0;y<h;y++){
+        buffer[6-y][x] = 1;
+    }
+  
+}
+
+void Stage::setRandomWall(float wallRate){
+    for(int x=0;x<width;x++){
+        if(ofRandom(0,1)>wallRate) {
+            setWall(x,(int)ofRandom(0,6));
+        }
+    }
+}
+
 
 
 

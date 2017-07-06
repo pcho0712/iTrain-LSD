@@ -42,10 +42,10 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
     //frame
     ofFill();
     ofSetColor(200);
-    ofDrawRectangle(0,0,matsz,matsz);
+    ofDrawRectangle(0,0,matsz*14,matsz);
     ofNoFill();
     ofSetColor(0);
-    ofDrawRectangle(0,0,matsz,matsz);
+    ofDrawRectangle(0,0,matsz*14,matsz);
     ofFill();
     
     //leds
@@ -106,10 +106,10 @@ void DataWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
     //frame
     ofFill();
     ofSetColor(200);
-    ofDrawRectangle(0,0,matsz,matsz);
+    ofDrawRectangle(0,0,matsz*5,matsz);
     ofNoFill();
     ofSetColor(0);
-    ofDrawRectangle(0,0,matsz,matsz);
+    ofDrawRectangle(0,0,matsz*5,matsz);
     ofFill();
     
     //leds

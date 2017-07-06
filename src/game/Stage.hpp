@@ -23,9 +23,14 @@ public:
     Stage();
     
     void update();
-    
-    void moveLeft();
+        void moveLeft();
 
+    //utility
+    void setGround();
+    void setWall(int,int);//posx, tall
+    void setRandomWall(float);//posx, tall
+
+    
     //debug
     void setRandomBuffer();
     
