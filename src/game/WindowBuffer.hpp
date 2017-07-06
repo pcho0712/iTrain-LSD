@@ -13,13 +13,19 @@
 #include <ofMain.h>
 #include "TextContent.hpp"
 #include "FontTo8x8.hpp"
+#include "Stage.hpp"
+#include "Player.hpp"
 
 
 class GameWindowBuffer{
 public:
-    unsigned char buffer[8][8*14];//14LED
+	unsigned char buffer[8][8*14];//14LED
+	
+	int windowHeight = 8;
+	int windowWidth = 8 * 14;
 
-    void setBuffer(unsigned char*);
+    void setStage(Stage stage);
+	void setPlayer(Player player);
 
     //debug-function
     void dispDebug(ofPoint,int);
@@ -33,8 +39,10 @@ class DataWindowBuffer{
     unsigned char buffer[8][8*4];//4LED
     FontTo8x8 fontbook[128];//font-book
 
+	int windowHeight = 8;
+	int windowWidth = 8 * 40;
 
-    void setText(TextContent);//LSDに参考になる関数あり
+    void setPlayer(Player player1, Player player2);//LSDに参考になる関数あり
 
     //utility-function
     void initFontBook();

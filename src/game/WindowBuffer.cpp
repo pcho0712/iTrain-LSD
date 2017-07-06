@@ -9,7 +9,14 @@
 #include "WindowBuffer.hpp"
 
 
-
+void GameWindowBuffer::setStage()
+{
+	for (int y = 0; y < windowHeight; y++) {
+		for (int x = 0; x < windowWidth; x++) {
+			buffer[y][x] = buf[y][x];
+		}
+	}
+}
 
 
 //original:: reffer to LEDMatrix::dispMat
@@ -71,6 +78,16 @@ void DataWindowBuffer::initFontBook(){
 
 
 
+
+
+void DataWindowBuffer::setBuffer(unsigned char buf[8][8*14])
+{
+	for (int y = 0; y < windowHeight; y++) {
+		for (int x = 0; x < windowWidth; x++) {
+			buffer[y][x] = buf[y][x];
+		}
+	}
+}
 
 
 
