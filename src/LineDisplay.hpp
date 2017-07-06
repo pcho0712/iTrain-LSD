@@ -11,29 +11,11 @@
 
 #include <stdio.h>
 #include <ofMain.h>
+#include "TextContent.hpp"
 #include "LEDMatrix.hpp"
 #include "FontTo8x8.hpp"
 
 
-
-
-class TextContent{
-public:
-    string text;
-    unsigned char length;
-    //    unsigned char* text;
-    //    unsigned char length;
-    
-    TextContent();
-    TextContent(string);
-    ~TextContent();
-    
-    //    void setLength(unsigned char);
-    void setText(string);
-    string getText();
-    unsigned char get(int);
-    
-};
 
 
 
