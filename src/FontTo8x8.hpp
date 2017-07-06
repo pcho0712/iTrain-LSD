@@ -20,14 +20,14 @@ public:
     unsigned char data[8][8];//font
     
     FontTo8x8(unsigned char);
-    FontTo8x8(unsigned wchar_t);
+    //FontTo8x8(unsigned wchar_t);
 
     FontTo8x8();
 
     ~FontTo8x8();
     
     void decodeFont(char);//ascii to font
-    void decodeHiragana(unsigned wchar_t);
+    //void decodeHiragana(unsigned wchar_t);
     
     
 };
