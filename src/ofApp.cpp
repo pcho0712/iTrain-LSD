@@ -54,11 +54,6 @@ void ofApp::update(){
     
     //TRI loding
     tri.update();
-
-    
-//    if(ofGetFrameNum()%3 == 0){
-//        ldisp.moveDataToLeft01();
-//    }
     
     //(option) TRI control test
     if(tri.status[0].pos>20)   ldisp.moveDataToLeft01();
@@ -88,15 +83,10 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    //    lmat.dispMatrix(ofPoint(500,300),200);
-    
     
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
-    
     tri.draw();
-
-    
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
     
