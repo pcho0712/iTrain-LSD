@@ -13,10 +13,17 @@
 
 
 class Stage{
-//    unsigned char buffer[][];
+    const int width = 8*14;
+    const int height = 8;
+
+    unsigned char buffer[8][8*14];
     
     void update();
+    
+    void moveLeft();
 
+    //debug
+    void setRandamBuffer();
     
     
 };

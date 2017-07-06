@@ -10,21 +10,29 @@
 #define WindowBuffer_hpp
 
 #include <stdio.h>
+#include <ofMain.h>
+
 
 
 
 class GameWindowBuffer{
-//    unsigned char buffer[][];
+    unsigned char buffer[8][8*14];//14LED
 
-    
+    void setBuffer(unsigned char*);
+
+    //debug-function
+    void dispDebug(ofPoint,int);
 };
 
 
 
 class DataWindowBuffer{
-    
-    
-    
+    unsigned char buffer[8][8*4];//4LED
+
+    void setText(TextContent);//LSDに参考になる関数あり
+
+    //debug-function
+    void dispDebug(ofPoint,int);
 };
 
 

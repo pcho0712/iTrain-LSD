@@ -18,18 +18,26 @@
 
 class GameManager{
     
+public:
     GameWindowBuffer gameWindow;
     DataWindowBuffer dataWindow1, dataWindow2;
     Player player1,player2;
     Stage stage;
     Status in1, in2;
     
-    void update();
-    
+
     void updateInputStatus(Status&, Status&);
     void updateGameLogic();
     void updateWindowBuffer();
   
+private:
+    //internal::updateInputStatus
+    
+    //internal::updateGameLogic
+    bool checkCollision();    
+
+    //internal::updateWindowBuffer
+
     
 };
 
