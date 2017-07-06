@@ -13,11 +13,11 @@ void ofApp::setup(){
         
     }
     //hiragana font
-    for(unsigned char ch = 0;ch<128;ch++){
+    /*for(unsigned char ch = 0;ch<128;ch++){
         unsigned wchar_t hiragana = (wchar_t)ch+ L'あ';
         hira[ch] =*new FontTo8x8(hiragana);
         cout << hiragana << endl;
-    }
+    }*/
     
     
     //set TRI

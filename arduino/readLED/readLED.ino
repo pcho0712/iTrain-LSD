@@ -2,6 +2,13 @@
 
 #define LDaddrs1 (0x70)  //LEDドライバーHT16K33　アドレス
 
+void LED_Driver_Setup(byte LD_addrs, byte on_off);
+void LED_Driver_Blink(byte LD_addrs, byte on_off, byte blink_Hz);
+void LED_Driver_Brightness(byte LD_addrs, byte brightness);
+void LED_Driver_DisplayInt(byte LD_addrs);
+void LED_Ada88_cnv(byte* Bdot1, byte* Bdot2);
+void LED_Driver_DisplayOutput(byte LD_addrs, byte* DotB);
+
 byte LedDot[8] = {
   B10000001,
   B11000001,
@@ -38,7 +45,7 @@ void setup()
     LED_Driver_Brightness( LDaddrs1 + i, 1 ); // brightness= 0～15
     LED_Driver_DisplayInt( LDaddrs1 + i ); //Display Black OUT
   }
-  delay(1000);
+  delay(200);
 
   prenum = 0;
   nownum = 1;
@@ -51,29 +58,45 @@ void setup()
 
 void loop() {
 
-  if (Serial.available() >= 32) {
-    digitalWrite(13, HIGH); //debug
-
-    if (flag_serial) {
-      for (int i = 0; i < 4; i++) {
-        for (int j = 0; j < 8; j++) {
-          LedDots[i][j] = Serial.read();
-        }
-        LED_Ada88_cnv(LedDots[i], LedDots2[i]);
-        LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
-      }
-      flag_serial = !flag_serial;
-    } else {
-      for (int i = 4; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-          LedDots[i][j] = Serial.read();
-        }
-        LED_Ada88_cnv(LedDots[i], LedDots2[i]);
-        LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
-      }
-      flag_serial = !flag_serial;
-    }
+  if (Serial.available() < 33) {
+    return;
   }
+
+  digitalWrite(13, HIGH); //debug
+
+  unsigned char presign = Serial.read();
+  if (presign == 0xAA) {
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < 8; j++) {
+        LedDots[i][j] = Serial.read();
+      }
+      LED_Ada88_cnv(LedDots[i], LedDots2[i]);
+      LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
+    }
+    flag_serial = !flag_serial;
+  } else if (presign == 0xAB) {
+    for (int i = 4; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        LedDots[i][j] = Serial.read();
+      }
+      LED_Ada88_cnv(LedDots[i], LedDots2[i]);
+      LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
+    }
+    flag_serial = !flag_serial;
+  } else {
+    Serial.read();
+    /*for (int i = 0; i < 8; i++) {
+      for (int j = 0; j < 8; j++) {
+        LedDots[i][j] = Serial.read();
+      }
+      LED_Ada88_cnv(LedDots[i], LedDots2[i]);
+      LED_Driver_DisplayOutput(LDaddrs1 + i, LedDots2[i]);
+    }*/
+    //LED_Ada88_cnv(LedDot, LedDots2[0]);
+    //LED_Driver_DisplayOutput(LDaddrs1, LedDots2[0]);
+
+  }
+
 }
 //**********************ＬＥＤドライバ　HT16K33　セットアップ*******************
 void LED_Driver_Setup(byte LD_addrs, byte on_off)
