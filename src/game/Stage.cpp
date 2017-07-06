@@ -8,7 +8,9 @@
 
 #include "Stage.hpp"
 
-
+Stage::Stage(){
+    setRandomBuffer();//debug
+}
 
 void Stage::moveLeft(){
     unsigned char buf=0;

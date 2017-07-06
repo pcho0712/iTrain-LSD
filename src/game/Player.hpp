@@ -18,6 +18,8 @@ public:
     int posX,posY;
     const int limX=8, limY=8*14;
     
+    Player();
+    
     void update();
     
     void move(int,int);
@@ -26,6 +28,7 @@ public:
     
     //utility
     void restrictPosition();
+    void setPos(int,int);
     //jump
     long jumpDuration = 20;
     long timeJumpStart = -1000;

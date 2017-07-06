@@ -65,8 +65,6 @@ void ofApp::update(){
     gm.updateGameLogic();
     gm.updateWindowBuffer();
     
-    
-    
     //RED buffer upload to LED buffer
     ldisp.uploadData();
     
@@ -85,6 +83,9 @@ void ofApp::draw(){
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
     tri.draw();
+    
+    gm.dispDebug();//debug
+
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
     

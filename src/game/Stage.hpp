@@ -20,6 +20,8 @@ public:
 
     unsigned char buffer[8][8*14];
     
+    Stage();
+    
     void update();
     
     void moveLeft();
