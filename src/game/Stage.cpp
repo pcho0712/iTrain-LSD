@@ -45,9 +45,10 @@ void Stage::setWall(int x,int h){
 }
 
 void Stage::setRandomWall(float wallRate){
+    int maxHeight =5;
     for(int x=0;x<width;x++){
         if(ofRandom(0,1)>wallRate) {
-            setWall(x,(int)ofRandom(0,6));
+            setWall(x,(int)ofRandom(0,maxHeight));
         }
     }
 }

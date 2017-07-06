@@ -18,7 +18,7 @@ GameManager::GameManager(){
 //    dataWindow1 = new DataWindowBuffer();
 //    dataWindow2 = new DataWindowBuffer();
 //    player1 = new Player();
-//    player2 = new Player();
+    player2.setPos(3,6);
 //    stage = new Stage();
 }
 
@@ -35,11 +35,13 @@ void GameManager::updateInputStatus(Status st[2]){
 }
 
 void GameManager::updateGameLogic(){
-    
+    player1.update();
+    player2.update();
+
     if(in1.sw) player1.jump();
     if(in2.sw) player2.jump();
     
-    stage.moveLeft();
+    if(ofGetFrameNum()%4==0) stage.moveLeft();
     
     checkCollision();
 }

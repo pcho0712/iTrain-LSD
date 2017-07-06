@@ -16,7 +16,7 @@ void ofApp::setup(){
     
     
     //set TRI
-    tri.open("COM13");
+    tri.open("tty.usbmodem1421");
     
     //set RED
     //red0.setID((int)0);
@@ -82,7 +82,7 @@ void ofApp::draw(){
     
     
     ldisp.display(ofPoint(100,200));
-    ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
+    ldisp.lmats[5]->dispMatrix(ofPoint(100,400),200);//debug
     tri.draw();
     
     gm.dispDebug();//debug
