@@ -21,11 +21,13 @@ void ofApp::setup(){
     
     
     //set TRI
-    tri.open("/dev/tty.usbmodem1421");
+    //tri.open("/dev/tty.usbmodem1421");
+    tri.open("/dev/tty.usbmodem1431");
     
     //set RED
     red0.setID((int)0);
-    red0.open("tty.usbserial-A105AC8S");
+    //red0.open("tty.usbserial-A105AC8S");
+    red0.open("tty.usbserial-A105AC6A");
     red1.setID((int)1);
     red1.open("tty.usbserial-A105ABLP");
     red2.setID((int)2);
@@ -63,7 +65,7 @@ void ofApp::update(){
     //(option) TRI control test
     if(tri.status[0].pos>20)   ldisp.moveDataToLeft01();
     if(tri.status[0].pos<-20)   ldisp.moveDataToRight01();
-/*    if(tri.status[0].sw){
+    if(tri.status[0].sw){
         string str = "--------SWITCH-ON--------";
         TextContent tx(str);
         ldisp.setText(tx);
@@ -71,7 +73,7 @@ void ofApp::update(){
         string str = "0-------1-------2-------";
         TextContent tx(str);
         ldisp.setText(tx);
-    }*/
+    }
     
     
     //RED buffer upload to LED buffer
@@ -113,8 +115,8 @@ void ofApp::keyPressed(int key){
     //    lmat.setData(font[ch].data);
 //    ldisp.addDataAtLast(font[ch].data);
     
-//    if(ch == '1')  ldisp.moveDataToLeft01();
-//    if(ch == '2')  ldisp.moveDataToRight01();
+    if(ch == '1')  ldisp.moveDataToLeft01();
+    if(ch == '2')  ldisp.moveDataToRight01();
 
 
 }

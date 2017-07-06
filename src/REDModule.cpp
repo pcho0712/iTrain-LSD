@@ -86,7 +86,6 @@ void REDModule::sendData(LineDisplay& ld){
             serial.writeByte(ch);
         }
     }
-    
 }
 
 
