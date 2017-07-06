@@ -21,15 +21,15 @@ void ofApp::setup(){
     
     
     //set TRI
-    tri.open("/dev/tty.usbmodem1421");
+    tri.open("COM13");
     
     //set RED
-    red0.setID((int)0);
-    red0.open("tty.usbserial-A105AC8S");
-    red1.setID((int)1);
-    red1.open("tty.usbserial-A105ABLP");
-    red2.setID((int)2);
-    red2.open("tty.usbserial-AK05ATII");
+    //red0.setID((int)0);
+    //red0.open("tty.usbserial-A105AC8S");
+    //red1.setID((int)1);
+    //red1.open("tty.usbserial-A105ABLP");
+    //red2.setID((int)2);
+    //red2.open("tty.usbserial-AK05ATII");
     
     
     
@@ -56,8 +56,10 @@ void ofApp::update(){
     tri.update();
     
     //(option) TRI control test
-    if(tri.status[0].pos>20)   ldisp.moveDataToLeft01();
-    if(tri.status[0].pos<-20)   ldisp.moveDataToRight01();
+    if(tri.status[0].pos<-20)   ldisp.moveDataToLeft01();
+    if(tri.status[0].pos>20)   ldisp.moveDataToRight01();
+    if(tri.status[1].pos<-20)   ldisp.moveDataToLeft01();
+    if(tri.status[1].pos>20)   ldisp.moveDataToRight01();
 /*    if(tri.status[0].sw){
         string str = "--------SWITCH-ON--------";
         TextContent tx(str);
@@ -73,9 +75,9 @@ void ofApp::update(){
     ldisp.uploadData();
     
     //Serial Communication
-    red0.sendData(ldisp);
-    red1.sendData(ldisp);
-    red2.sendData(ldisp);
+    //red0.sendData(ldisp);
+    //red1.sendData(ldisp);
+    //red2.sendData(ldisp);
     
     
 }

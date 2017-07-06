@@ -50,8 +50,10 @@ void TwistedRingInterface::update(){
             //parsing
             char id = (byte & 0x80)>>7;//MSB
             char sw = (byte & 0x40)>>6 ? true : false;//MSB-1
-            char sign = byte & 0x20 <<2;//MSB-2: sign of position
-            signed char pos = sign|(byte & 0x1F);//LSB to MSB-3
+            char sign = (byte & 0x20) <<2;//MSB-2: sign of position
+            signed char pos = sign | (byte & 0x1F);
+			if (pos < 0) pos = -(pos + 128);
+			//LSB to MSB-3
 //            cout << static_cast<std::bitset<8>>(pos) << endl;
 
             
