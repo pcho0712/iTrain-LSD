@@ -67,6 +67,8 @@ void LineDisplay::setText(TextContent txt){
     }
 }
 
+
+
 void LineDisplay::initFontBook(){
     //create font book
     for(unsigned char ch = 0;ch<128;ch++){
@@ -115,36 +117,4 @@ void LineDisplay::addDataAtLast(unsigned char d[8][8]){
 
 
 ////////////////////
-
-
-TextContent::TextContent(){
-    
-}
-
-TextContent::TextContent(string str){
-    setText(str);
-}
-TextContent::~TextContent(){
-    
-}
-
-//void setLength(unsigned char _len){
-//    length = _len;
-//}
-
-void TextContent::setText(string str){
-    text = str;
-}
-
-string TextContent::getText(){
-    return text;
-}
-
-unsigned char TextContent::get(int n){
-    return text[n];
-}
-
-
-
-
 
