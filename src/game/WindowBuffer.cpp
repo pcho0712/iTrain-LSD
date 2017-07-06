@@ -70,10 +70,10 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
 
 
 void DataWindowBuffer::setPlayer(Player player){
-	int tmpt;
+	int tmpt = player.time;
 	if (tmpt > 999) tmpt = 999;
 
-	text.setText(std::to_string(player.time));
+	text.setText(std::to_string(tmpt));
 
     for(int n=0;n<textLength;n++){
         unsigned char ch = text.get(n);
