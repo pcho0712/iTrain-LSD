@@ -15,8 +15,8 @@ Player::Player(){
 
 
 void Player::update(){
-    time++;
-    if(isJump()) moveWhileJump(time-timeJumpStart); 
+    updateTime();
+    if(isJump()) moveWhileJump(time-timeJumpStart);
     restrictPosition();
 }
 
@@ -37,6 +37,9 @@ void Player::dead(){
 
 
 //helper
+void Player::updateTime(){
+    time++;
+}
 
 void Player::setPos(int x, int y){
     posX=x;

@@ -54,9 +54,9 @@ void GameManager::updateWindowBuffer(){
 }
 
 void GameManager::dispDebug(){
-    gameWindow.dispDebug(ofPoint(300,500), 50);
-    dataWindow1.dispDebug(ofPoint(300,550), 50);
-    dataWindow2.dispDebug(ofPoint(300,600), 50);
+    gameWindow.dispDebug(ofPoint(330,500), 50);
+    dataWindow1.dispDebug(ofPoint(330,550), 50);
+    dataWindow2.dispDebug(ofPoint(330,600), 50);
 }
 
 

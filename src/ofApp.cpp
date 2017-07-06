@@ -66,6 +66,7 @@ void ofApp::update(){
     gm.updateWindowBuffer();
     
     //RED buffer upload to LED buffer
+//    ldisp.renderData(gm.dataWindow1.buffer, gm.dataWindow2.buffer, gm.gameWindow.buffer);//よろしく
     ldisp.uploadData();
     
     //Serial Communication

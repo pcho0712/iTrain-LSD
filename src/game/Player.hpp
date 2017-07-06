@@ -29,6 +29,7 @@ public:
     //utility
     void restrictPosition();
     void setPos(int,int);
+    void updateTime();
     //jump
     long jumpDuration = 20;
     long timeJumpStart = -1000;

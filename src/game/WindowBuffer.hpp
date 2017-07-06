@@ -37,7 +37,7 @@ public:
 
 class DataWindowBuffer{
     public:
-    unsigned char buffer[8][8*4];//4LED
+    unsigned char buffer[8][8*5];//5LED
     FontTo8x8 fontbook[128];//font-book
 	TextContent text;
 
