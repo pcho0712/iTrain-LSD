@@ -23,7 +23,7 @@ TwistedRingInterface::~TwistedRingInterface(){
 
 bool TwistedRingInterface::open(string str){
     port = str;// "/dev/tty.usbmodem1411"
-    if(serial.setup(port,115200)){
+    if(serial.setup(port,9600)){
         connected = true;
         return true;
     }else{
@@ -38,6 +38,7 @@ void TwistedRingInterface::update(){
     
     //まずはじめに：シリアルバッファがたまりすぎていたら捨てる作業
     while(serial.available()>10) serial.readByte();
+    cout << serial.available() << endl;
     
     if(serial.available()>1){
         
@@ -45,7 +46,7 @@ void TwistedRingInterface::update(){
         
         if(serial.readByte() == START_BYTE){  //start-byte
             unsigned char byte = serial.readByte();            //data-byte
-            cout << static_cast<std::bitset<8>>(byte) << endl;
+//            cout << static_cast<std::bitset<8>>(byte) << endl;
 
             //parsing
             char id = (byte & 0x80)>>7;//MSB
@@ -55,7 +56,6 @@ void TwistedRingInterface::update(){
 			if (pos < 0) pos = -(pos + 128);
 			//LSB to MSB-3
 //            cout << static_cast<std::bitset<8>>(pos) << endl;
-
             
             //store
             status[id].id = id;

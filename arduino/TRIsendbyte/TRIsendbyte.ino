@@ -6,7 +6,7 @@ bool triId = true;
 void setup() {
   // put your setup code here, to run once:
   // put your setup code here, to run once:
-  Serial.begin(115200);
+  Serial.begin(9600);
   pinMode(2, INPUT_PULLUP);
   pinMode(13, OUTPUT);
   pinMode(3, INPUT_PULLUP);
@@ -79,8 +79,10 @@ sendByte1 = sendByte1 | 0x80;
 
   Serial.write(0xFF);
   Serial.write(sendByte0);
+    delay(15);
+
   Serial.write(0xFF);
   Serial.write(sendByte1);
-  delay(100);
+  delay(15);
 
 }

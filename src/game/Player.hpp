@@ -31,7 +31,7 @@ public:
     void setPos(int,int);
     void updateTime();
     //jump
-    long jumpDuration = 20;
+    long jumpDuration = 30;
     long timeJumpStart = -1000;
     bool isJump();
     void moveWhileJump(long);

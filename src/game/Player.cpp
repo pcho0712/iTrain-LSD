@@ -32,7 +32,7 @@ void Player::jump(){
 }
 
 void Player::dead(){
-    time = 0;
+    if(!isJump()) time = 0;
 }
 
 
@@ -64,12 +64,12 @@ bool Player::isJump(){
 }
 
 void Player::moveWhileJump(long count){
-    if (count==1) move(0,-1);
     if (count==2) move(0,-1);
     if (count==4) move(0,-1);
-    if (count==7) move(0,-1);
-    if (count==10) move(0,1);
-    if (count==12) move(0,1);
-    if (count==13) move(0,1);
-    if (count==14) move(0,1);
+    if (count==8) move(0,-1);
+    if (count==14) move(0,-1);
+    if (count==20) move(0,1);
+    if (count==24) move(0,1);
+    if (count==26) move(0,1);
+    if (count==28) move(0,1);
 }

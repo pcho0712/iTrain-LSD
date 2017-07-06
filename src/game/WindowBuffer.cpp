@@ -21,14 +21,20 @@ void GameWindowBuffer::setStage(Stage stage)
 
 void GameWindowBuffer::setPlayer(Player player1, Player player2) 
 {
-	buffer[player1.posY][player2.posX] = 1;
+    //本人
+	buffer[player1.posY][player1.posX] = 1;
 	buffer[player2.posY][player2.posX] = 1;
+    //頭
 	if (player1.posY < windowHeight - 1) {
 		buffer[player1.posY - 1][player1.posX] = 1;
 	}
 	if (player2.posY < windowHeight - 1) {
 		buffer[player2.posY - 1][player2.posX] = 1;
 	}
+    //カーソル
+    if((player1.time/20)%10!=0) buffer[0][player1.posX] = 1;
+    if((player2.time/20)%10!=0) buffer[0][player2.posX] = 1;
+
 }
 
 
