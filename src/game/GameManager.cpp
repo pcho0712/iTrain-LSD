@@ -10,7 +10,10 @@
 
 
 
-
+GameManager::GameManager(){
+    gameWindow = new GameWindowBuffer();
+    
+}
 
 
 
@@ -22,30 +25,38 @@ void GameManager::updateInputStatus(Status[2] st){
 
 void GameManager::updateGameLogic(){
     
+    if(in1.sw) player1.jump();
+    if(in2.sw) player2.jump();
     
+    stage.moveLeft();
     
-    
+    checkCollision();
 }
 
 
 
 void GameManager::updateWindowBuffer(){
     
+ 
+    
     
 }
 
 
 //helper
-bool checkCollision(){
+void checkCollision(){
 
-    //player1
-    int x = player1.posX;
-    int y = player1.posY;
-    if(Stage[y][x])
+    int x1 = player1.posX;
+    int y1 = player1.posY;
+    int x2 = player2.posX;
+    int y2 = player2.posY;
     
-    
-    //player2
-    
+    if(Stage[y1][x1]){
+        player1.dead();
+    }
+    if(Stage[y2][x2]){
+        player2.dead();
+    }
     
 }
 

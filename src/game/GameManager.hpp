@@ -25,18 +25,21 @@ public:
     Stage stage;
     Status in1, in2;
     
+    GameManager();
+    
 
     void updateInputStatus(Status&, Status&);
     void updateGameLogic();
     void updateWindowBuffer();
   
-private:
-    //internal::updateInputStatus
     
-    //internal::updateGameLogic
+private:
+    //internal updateInputStatus
+    
+    //internal updateGameLogic
     bool checkCollision();    
 
-    //internal::updateWindowBuffer
+    //internal updateWindowBuffer
 
     
 };

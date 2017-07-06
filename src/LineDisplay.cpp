@@ -74,7 +74,6 @@ void LineDisplay::initFontBook(){
     for(unsigned char ch = 0;ch<128;ch++){
         fontbook[ch] =*new FontTo8x8(ch);
     }
-    
 }
 
 

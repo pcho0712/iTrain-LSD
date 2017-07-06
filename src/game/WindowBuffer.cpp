@@ -49,6 +49,29 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
 
 
 
+void DataWindowBuffer::setText(TextContent txt){
+    for(int n=0;n<length;n++){
+        unsigned char ch = txt.get(n);
+        for(int y=0;y<8;y++){
+            for(int x=0;x<8;x++){
+                data[y][n*8+x] = fontbook[ch].data[y][x];
+            }
+        }
+    }
+}
+
+
+
+void DataWindowBuffer::initFontBook(){
+    //create font book
+    for(unsigned char ch = 0;ch<128;ch++){
+        fontbook[ch] =*new FontTo8x8(ch);
+    }
+}
+
+
+
+
 
 
 //contents is cloned from GWB::dispDebug()
