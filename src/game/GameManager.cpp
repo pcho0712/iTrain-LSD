@@ -47,10 +47,10 @@ void GameManager::updateGameLogic(){
 
 
 void GameManager::updateWindowBuffer(){
-    
- 
-    
-    
+	gameWindow.setStage(stage);
+	gameWindow.setPlayer(player1, player2);
+	dataWindow1.setPlayer(player1);
+	dataWindow2.setPlayer(player2);
 }
 
 

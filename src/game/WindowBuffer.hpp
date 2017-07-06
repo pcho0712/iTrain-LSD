@@ -25,6 +25,7 @@ public:
 	int windowWidth = 8 * 14;
 
     void setStage(Stage stage);
+	//Do setStage Fist, and please setPlayer
 	void setPlayer(Player player1, Player player2);
 
     //debug-function
