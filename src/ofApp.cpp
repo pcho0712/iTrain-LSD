@@ -19,12 +19,12 @@ void ofApp::setup(){
     tri.open("COM13");
     
     //set RED
-    //red0.setID((int)0);
-    //red0.open("tty.usbserial-A105AC8S");
-    //red1.setID((int)1);
-    //red1.open("tty.usbserial-A105ABLP");
-    //red2.setID((int)2);
-    //red2.open("tty.usbserial-AK05ATII");
+    red0.setID((int)0);
+    red0.open("tty.usbserial-A105AC6A");
+    red1.setID((int)1);
+    red1.open("tty.usbserial-A105ABLP");
+    red2.setID((int)2);
+    red2.open("tty.usbserial-AK05ATII");
     
     
     
@@ -70,9 +70,9 @@ void ofApp::update(){
     ldisp.uploadData();
     
     //Serial Communication
-    //red0.sendData(ldisp);
-    //red1.sendData(ldisp);
-    //red2.sendData(ldisp);
+    red0.sendData(ldisp);
+    red1.sendData(ldisp);
+    red2.sendData(ldisp);
     
     
 }
