@@ -26,6 +26,9 @@ class LineDisplay{
     unsigned char data[8][8*length];//これを操作して毎フレームlmatsに割り付ける
     const int dispWidth = 8*length;
     const int dispHeight = 8;
+	
+	const int datawinWidth = 40;
+	const int gamewinWidth = dispWidth - datawinWidth*2;
     
     FontTo8x8 fontbook[128];//font-book
     TextContent text;
@@ -44,6 +47,7 @@ class LineDisplay{
     void setRandomData();
     void setText(TextContent);
     void initFontBook();
+	void renderData(char datawin1[8][40], char datawin2[8][40], char gamewin[8][112]);
     
     //data operation
     void moveDataToRight01();
