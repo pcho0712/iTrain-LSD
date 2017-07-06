@@ -30,6 +30,7 @@ public:
     void setText(string);
     string getText();
     unsigned char get(int);
+	void set4dig(long);
     
 };
 

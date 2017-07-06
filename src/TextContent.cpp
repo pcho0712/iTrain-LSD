@@ -37,6 +37,16 @@ unsigned char TextContent::get(int n){
     return text[n];
 }
 
+void TextContent::set4dig(long num)
+{
+	if (num > 9999) num = 9999;
+	string str = to_string(num);
+	while (str.length() < 4) {
+		str.insert(str.begin(), '0');
+	}
+	text = str;
+}
+
 
 
 
