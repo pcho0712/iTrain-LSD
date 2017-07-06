@@ -10,7 +10,15 @@
 
 
 
-
+QContent::QContent(){
+    
+    
+}
+QContent::~QContent(){
+    
+    
+    
+}
 
 
 
@@ -19,14 +27,13 @@
 
 Questioner::Questioner(){
     
+        
     
-    
-    
-};
+}
 
 
 Questioner::~Questioner(){
     
     
     
-};
+}
