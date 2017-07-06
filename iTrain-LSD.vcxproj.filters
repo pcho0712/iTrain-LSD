@@ -10,6 +10,18 @@
     <ClCompile Include="src\FontTo8x8.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\GameManager.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Player.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\Stage.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\WindowBuffer.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
     <ClCompile Include="src\LEDMatrix.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -22,7 +34,16 @@
     <ClCompile Include="src\ofApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Questionnaire.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\REDModule.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Status.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextContent.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\TwistedRingInterface.cpp">
@@ -59,6 +80,9 @@
     </Filter>
     <Filter Include="src\font8x8-master">
       <UniqueIdentifier>{442D16A3-F003-0A27-808C-6A8D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{097A2B9D-257B-165E-E663-6489}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons">
       <UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
@@ -110,6 +134,18 @@
     <ClInclude Include="src\FontTo8x8.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\GameManager.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Player.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\Stage.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\WindowBuffer.hpp">
+      <Filter>src\game</Filter>
+    </ClInclude>
     <ClInclude Include="src\LEDMatrix.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -119,7 +155,16 @@
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Questionnaire.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\REDModule.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Status.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextContent.hpp">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\TwistedRingInterface.hpp">
@@ -152,8 +197,5 @@
     <ClInclude Include="..\..\..\addons\ofxGui\src\ofxToggle.h">
       <Filter>addons\ofxGui\src</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
   </ItemGroup>
 </Project>
