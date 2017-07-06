@@ -40,6 +40,11 @@ void GameManager::updateGameLogic(){
 
     if(in1.sw) player1.jump();
     if(in2.sw) player2.jump();
+    if(in1.pos >20) player1.move(1,0);
+    if(in1.pos <-20) player1.move(-1,0);
+    if(in2.pos >20) player2.move(1,0);
+    if(in2.pos <-20) player2.move(-1,0);
+
     
     if(ofGetFrameNum()%4==0) stage.moveLeft();
     

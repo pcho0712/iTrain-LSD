@@ -16,7 +16,7 @@ class Player{
 public:
     long time;
     int posX,posY;
-    const int limX=8, limY=8*14;
+    const int limX=8*14, limY=8;
     
     Player();
     
