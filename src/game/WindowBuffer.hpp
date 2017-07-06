@@ -11,14 +11,21 @@
 
 #include <stdio.h>
 #include <ofMain.h>
+#include "Stage.hpp"
+#include "Player.hpp"
 
 
 
 
 class GameWindowBuffer{
-    unsigned char buffer[8][8*14];//14LED
+public:
+	unsigned char buffer[8][8*14];//14LED
+	
+	int windowHeight = 8;
+	int windowWidth = 8 * 14;
 
-    void setBuffer(unsigned char*);
+    void setStage(Stage stage);
+	void setPlayer(Player player);
 
     //debug-function
     void dispDebug(ofPoint,int);
@@ -27,9 +34,12 @@ class GameWindowBuffer{
 
 
 class DataWindowBuffer{
+public:
     unsigned char buffer[8][8*4];//4LED
+	int windowHeight = 8;
+	int windowWidth = 8 * 40;
 
-    void setText(TextContent);//LSDに参考になる関数あり
+    void setPlayer(Player player1, Player player2);//LSDに参考になる関数あり
 
     //debug-function
     void dispDebug(ofPoint,int);
