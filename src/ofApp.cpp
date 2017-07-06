@@ -12,26 +12,19 @@ void ofApp::setup(){
         font[ch] =*new FontTo8x8(ch);
         
     }
-    //hiragana font
-    /*for(unsigned char ch = 0;ch<128;ch++){
-        unsigned wchar_t hiragana = (wchar_t)ch+ L'あ';
-        hira[ch] =*new FontTo8x8(hiragana);
-        cout << hiragana << endl;
-    }*/
+
     
     
     //set TRI
-    //tri.open("/dev/tty.usbmodem1421");
-    tri.open("/dev/tty.usbmodem1431");
+    tri.open("COM13");
     
     //set RED
-    red0.setID((int)0);
+    //red0.setID((int)0);
     //red0.open("tty.usbserial-A105AC8S");
-    red0.open("tty.usbserial-A105AC6A");
-    red1.setID((int)1);
-    red1.open("tty.usbserial-A105ABLP");
-    red2.setID((int)2);
-    red2.open("tty.usbserial-AK05ATII");
+    //red1.setID((int)1);
+    //red1.open("tty.usbserial-A105ABLP");
+    //red2.setID((int)2);
+    //red2.open("tty.usbserial-AK05ATII");
     
     
     
@@ -43,6 +36,9 @@ void ofApp::setup(){
     
     
     
+    
+    //game manager
+
     
     
     
@@ -56,33 +52,27 @@ void ofApp::update(){
     
     //TRI loding
     tri.update();
-
-    
-//    if(ofGetFrameNum()%3 == 0){
-//        ldisp.moveDataToLeft01();
-//    }
     
     //(option) TRI control test
-    if(tri.status[0].pos>20)   ldisp.moveDataToLeft01();
-    if(tri.status[0].pos<-20)   ldisp.moveDataToRight01();
-    if(tri.status[0].sw){
-        string str = "--------SWITCH-ON--------";
-        TextContent tx(str);
-        ldisp.setText(tx);
-    }else{
-        string str = "0-------1-------2-------";
-        TextContent tx(str);
-        ldisp.setText(tx);
-    }
+//    if(tri.status[0].pos<-20)   ldisp.moveDataToLeft01();
+//    if(tri.status[0].pos>20)   ldisp.moveDataToRight01();
+//    if(tri.status[1].pos<-20)   ldisp.moveDataToLeft01();
+//    if(tri.status[1].pos>20)   ldisp.moveDataToRight01();
+
     
+    //GameManager
+    gm.updateInputStatus(tri.status);
+    gm.updateGameLogic();
+    gm.updateWindowBuffer();
     
     //RED buffer upload to LED buffer
+    ldisp.renderData(gm.dataWindow1.buffer, gm.dataWindow2.buffer, gm.gameWindow.buffer);//よろしく
     ldisp.uploadData();
     
     //Serial Communication
-    red0.sendData(ldisp);
-    red1.sendData(ldisp);
-    red2.sendData(ldisp);
+    //red0.sendData(ldisp);
+    //red1.sendData(ldisp);
+    //red2.sendData(ldisp);
     
     
 }
@@ -90,15 +80,13 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    //    lmat.dispMatrix(ofPoint(500,300),200);
-    
     
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[1]->dispMatrix(ofPoint(100,400),200);//debug
-    
     tri.draw();
-
     
+    gm.dispDebug();//debug
+
     
     //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
     

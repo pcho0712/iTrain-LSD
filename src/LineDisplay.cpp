@@ -67,12 +67,13 @@ void LineDisplay::setText(TextContent txt){
     }
 }
 
+
+
 void LineDisplay::initFontBook(){
     //create font book
     for(unsigned char ch = 0;ch<128;ch++){
         fontbook[ch] =*new FontTo8x8(ch);
     }
-    
 }
 
 
@@ -113,38 +114,19 @@ void LineDisplay::addDataAtLast(unsigned char d[8][8]){
 }
 
 
-
+void LineDisplay::renderData(unsigned char datawin1[8][40], unsigned char datawin2[8][40], unsigned char gamewin[8][112])
+{
+	for (int y = 0; y<dispHeight; y++) {
+		for (int x = 0; x < datawinWidth; x++) {
+			data[y][x] = datawin1[y][x];
+		}
+		for (int x = datawinWidth; x < datawinWidth + gamewinWidth; x++) {
+			data[y][x] = gamewin[y][x - datawinWidth];
+		}
+		for (int x = datawinWidth + gamewinWidth; x < dispWidth; x++) {
+			data[y][x] = datawin2[y][x - datawinWidth - gamewinWidth];
+		}
+	}
+}
 ////////////////////
-
-
-TextContent::TextContent(){
-    
-}
-
-TextContent::TextContent(string str){
-    setText(str);
-}
-TextContent::~TextContent(){
-    
-}
-
-//void setLength(unsigned char _len){
-//    length = _len;
-//}
-
-void TextContent::setText(string str){
-    text = str;
-}
-
-string TextContent::getText(){
-    return text;
-}
-
-unsigned char TextContent::get(int n){
-    return text[n];
-}
-
-
-
-
 

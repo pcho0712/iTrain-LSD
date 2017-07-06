@@ -45,6 +45,7 @@ void loop() {
   int nowpos1 = analogRead(A1) - defaultValue1;
   if (nowpos1 > 31) nowpos1 = 31;
   if (nowpos1 < -31) nowpos1 = -31;
+  //Serial.println(nowpos1);
 
   if (nowpos1 < 0) {
     sendByte1 = (byte) abs(nowpos1);
@@ -76,8 +77,6 @@ void loop() {
 //sendByte0 = sendByte0 | 0x80;
 sendByte1 = sendByte1 | 0x80;
 
-
-  //Serial.write(0xFF);
   Serial.write(0xFF);
   Serial.write(sendByte0);
   Serial.write(0xFF);

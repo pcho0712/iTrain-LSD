@@ -7,6 +7,8 @@
 #include "REDModule.hpp"
 #include "FontTo8x8.hpp"
 #include "font8x8-master/font8x8_basic.h"
+//Game
+#include "game/GameManager.hpp"
 
 
 class ofApp : public ofBaseApp{
@@ -33,9 +35,10 @@ public:
 
     REDModule red0,red1,red2;
     TwistedRingInterface tri;
-
+    
+    GameManager gm;
+    
     
     FontTo8x8 font[128];//font-book
-    FontTo8x8 hira[128];//hiragana-font
 
 };
