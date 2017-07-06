@@ -9,8 +9,9 @@
 #include "Player.hpp"
 
 
-
-
+Player::Player(){
+    setPos(6,6);
+}
 
 
 void Player::update(){
@@ -36,6 +37,13 @@ void Player::dead(){
 
 
 //helper
+
+void Player::setPos(int x, int y){
+    posX=x;
+    posY=y;
+    restrictPosition();
+}
+
 void  Player::restrictPosition(){
     if(posX < 0) posX = 0;
     if(posY < 0) posY = 0;

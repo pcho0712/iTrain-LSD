@@ -33,6 +33,8 @@ public:
     void updateGameLogic();
     void updateWindowBuffer();
   
+    //debug
+    void dispDebug();
     
 private:
     //internal updateInputStatus
@@ -41,6 +43,7 @@ private:
     void checkCollision();
 
     //internal updateWindowBuffer
+    
 
     
 };

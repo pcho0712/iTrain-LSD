@@ -67,8 +67,6 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
 }
 
 
-
-
 void DataWindowBuffer::setPlayer(Player player){
 	int tmpt = player.time;
 	if (tmpt > 1000) tmpt = 1000;

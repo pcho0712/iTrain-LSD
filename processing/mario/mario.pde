@@ -45,6 +45,6 @@ void keyPressed() {
     if (keyCode==LEFT) mario.moveLeft();
     if (keyCode==UP) mario.moveUp();
     if (keyCode==DOWN) mario.moveDown();
-    if (keyCode==ENTER) mario.jump();
+    if (keyCode==RETURN) mario.jump();
   }
 }
