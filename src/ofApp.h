@@ -7,6 +7,8 @@
 #include "REDModule.hpp"
 #include "FontTo8x8.hpp"
 #include "font8x8-master/font8x8_basic.h"
+//Game
+#include "game/GameManager.hpp"
 
 
 class ofApp : public ofBaseApp{

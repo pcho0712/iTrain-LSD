@@ -11,13 +11,9 @@
 
 #include <stdio.h>
 #include "ofMain.h"
+#include "Status.hpp"
 
 
-struct Status{
-    char id;//tri-id
-    bool sw;//switch on/off
-    signed char pos;//potentio-meter
-};
 
 class TwistedRingInterface{
 public:
