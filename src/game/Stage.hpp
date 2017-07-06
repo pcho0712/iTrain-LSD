@@ -13,6 +13,7 @@
 
 
 class Stage{
+public:
     const int width = 8*14;
     const int height = 8;
 

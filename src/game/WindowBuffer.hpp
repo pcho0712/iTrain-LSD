@@ -25,7 +25,7 @@ public:
 	int windowWidth = 8 * 14;
 
     void setStage(Stage stage);
-	void setPlayer(Player player);
+	void setPlayer(Player player1, Player player2);
 
     //debug-function
     void dispDebug(ofPoint,int);
@@ -38,11 +38,16 @@ class DataWindowBuffer{
     public:
     unsigned char buffer[8][8*4];//4LED
     FontTo8x8 fontbook[128];//font-book
+	TextContent text;
+
+	const int textLength = 4;
+
 
 	int windowHeight = 8;
-	int windowWidth = 8 * 40;
+	int windowWidth = 8 * 5;
+	int offsetw = 8 / 2;
 
-    void setPlayer(Player player1, Player player2);//LSDに参考になる関数あり
+    void setPlayer(Player player);//LSDに参考になる関数あり
 
     //utility-function
     void initFontBook();

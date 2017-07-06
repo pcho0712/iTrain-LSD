@@ -7,14 +7,27 @@
 //
 
 #include "WindowBuffer.hpp"
+#include <string>
 
 
-void GameWindowBuffer::setStage()
+void GameWindowBuffer::setStage(Stage stage)
 {
 	for (int y = 0; y < windowHeight; y++) {
 		for (int x = 0; x < windowWidth; x++) {
-			buffer[y][x] = buf[y][x];
+			buffer[y][x] = stage.buffer[y][x];
 		}
+	}
+}
+
+void GameWindowBuffer::setPlayer(Player player1, Player player2) 
+{
+	buffer[player1.posY][player2.posX] = 1;
+	buffer[player2.posY][player2.posX] = 1;
+	if (player1.posY < windowHeight - 1) {
+		buffer[player1.posY - 1][player1.posX] = 1;
+	}
+	if (player2.posY < windowHeight - 1) {
+		buffer[player2.posY - 1][player2.posX] = 1;
 	}
 }
 
@@ -38,8 +51,8 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
     //leds
     int LEDpitch = matsz/8;
     ofTranslate(LEDpitch/2, LEDpitch/2);
-    for(int y=0;y<height;y++){
-        for(int x=0;x<width;x++){
+    for(int y=0;y<windowHeight;y++){
+        for(int x=0;x<windowWidth;x++){
             if( buffer[y][x]){
                 ofSetColor(255,0,0 );
             }else{
@@ -56,12 +69,17 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
 
 
 
-void DataWindowBuffer::setText(TextContent txt){
-    for(int n=0;n<length;n++){
-        unsigned char ch = txt.get(n);
+void DataWindowBuffer::setPlayer(Player player){
+	int tmpt;
+	if (tmpt > 999) tmpt = 999;
+
+	text.setText(std::to_string(player.time));
+
+    for(int n=0;n<textLength;n++){
+        unsigned char ch = text.get(n);
         for(int y=0;y<8;y++){
             for(int x=0;x<8;x++){
-                data[y][n*8+x] = fontbook[ch].data[y][x];
+                buffer[y][n*8+x+offsetw] = fontbook[ch].data[y][x];
             }
         }
     }
@@ -76,18 +94,6 @@ void DataWindowBuffer::initFontBook(){
     }
 }
 
-
-
-
-
-void DataWindowBuffer::setBuffer(unsigned char buf[8][8*14])
-{
-	for (int y = 0; y < windowHeight; y++) {
-		for (int x = 0; x < windowWidth; x++) {
-			buffer[y][x] = buf[y][x];
-		}
-	}
-}
 
 
 
@@ -110,8 +116,8 @@ void DataWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
     //leds
     int LEDpitch = matsz/8;
     ofTranslate(LEDpitch/2, LEDpitch/2);
-    for(int y=0;y<height;y++){
-        for(int x=0;x<width;x++){
+    for(int y=0;y<windowHeight;y++){
+        for(int x=0;x<windowWidth;x++){
             if( buffer[y][x]){
                 ofSetColor(255,0,0 );
             }else{
