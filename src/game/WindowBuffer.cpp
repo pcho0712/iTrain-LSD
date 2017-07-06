@@ -66,6 +66,9 @@ void GameWindowBuffer::dispDebug(ofPoint ofpos, int matsz){
     ofPopMatrix();
 }
 
+DataWindowBuffer::DataWindowBuffer() {
+	initFontBook();
+}
 
 void DataWindowBuffer::setPlayer(Player player){
 	int tmpt = player.time;
