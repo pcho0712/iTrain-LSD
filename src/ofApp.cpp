@@ -13,11 +13,11 @@ void ofApp::setup(){
         
     }
     //hiragana font
-    for(unsigned char ch = 0;ch<128;ch++){
+    /*for(unsigned char ch = 0;ch<128;ch++){
         unsigned wchar_t hiragana = (wchar_t)ch+ L'あ';
         hira[ch] =*new FontTo8x8(hiragana);
         cout << hiragana << endl;
-    }
+    }*/
     
     
     //set TRI
@@ -113,8 +113,8 @@ void ofApp::keyPressed(int key){
     //    lmat.setData(font[ch].data);
 //    ldisp.addDataAtLast(font[ch].data);
     
-//    if(ch == '1')  ldisp.moveDataToLeft01();
-//    if(ch == '2')  ldisp.moveDataToRight01();
+    if(ch == '1')  ldisp.moveDataToLeft01();
+    if(ch == '2')  ldisp.moveDataToRight01();
 
 
 }
