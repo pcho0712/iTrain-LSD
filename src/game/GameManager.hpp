@@ -10,11 +10,12 @@
 #define GameManager_hpp
 
 #include <stdio.h>
-#include "ofMain.h"
+#include <ofMain.h>
 #include "Status.hpp"
 #include "Player.hpp"
 #include "Stage.hpp"
 #include "WindowBuffer.hpp"
+
 
 class GameManager{
     
@@ -25,8 +26,8 @@ public:
     Stage stage;
     Status in1, in2;
     
-    GameManager();
-    
+//    GameManager();
+//    ~GameManager();
 
     void updateInputStatus(Status&, Status&);
     void updateGameLogic();

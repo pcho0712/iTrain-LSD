@@ -10,10 +10,22 @@
 
 
 
+
+
+
 GameManager::GameManager(){
-    gameWindow = new GameWindowBuffer();
+//    gameWindow = new GameWindowBuffer();
+//    dataWindow1 = new DataWindowBuffer();
+//    dataWindow2 = new DataWindowBuffer();
+//    player1 = new Player();
+//    player2 = new Player();
+//    stage = new Stage();
+}
+
+GameManager::~GameManager(){
     
 }
+
 
 
 

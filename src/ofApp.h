@@ -35,9 +35,10 @@ public:
 
     REDModule red0,red1,red2;
     TwistedRingInterface tri;
-
+    
+    GameManager gm;
+    
     
     FontTo8x8 font[128];//font-book
-    FontTo8x8 hira[128];//hiragana-font
 
 };

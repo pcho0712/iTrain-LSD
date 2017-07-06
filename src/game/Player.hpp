@@ -13,6 +13,7 @@
 
 
 class Player{
+public:
     long time;
     int posX,posY;
     const int limX=8, limY=8*14;
@@ -22,6 +23,15 @@ class Player{
     void move(int,int);
     void jump();
     void dead();
+    
+    //utility
+    void restrictPosition();
+    //jump
+    long jumpDuration = 20;
+    long timeJumpStart = -1000;
+    bool isJump();
+    void moveWhileJump(long);
+    
     
     
 };
