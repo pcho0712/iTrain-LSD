@@ -6,8 +6,6 @@ void ofApp::setup(){
     ofSetFrameRate(30);
     ofBackground(255, 255, 255);
     
-
-    
 #ifndef DEBUG_TRI
     //set TRI
     tri.open("tty.usbmodem1421");
@@ -32,7 +30,6 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    
     //TRI loding
     tri.update();
     
@@ -43,7 +40,7 @@ void ofApp::update(){
     gm.updateWindowBuffer();
     
     //RED buffer upload to LED buffer
-    ldisp.renderData(gm.dataWindow1.buffer, gm.dataWindow2.buffer, gm.gameWindow.buffer);//よろしく
+    ldisp.renderData(gm.dataWindow1.buffer, gm.dataWindow2.buffer, gm.gameWindow.buffer);
     ldisp.uploadData();
     
     //Serial Communication
@@ -51,26 +48,16 @@ void ofApp::update(){
     red1.sendData(ldisp);
     red2.sendData(ldisp);
     
-    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
     
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[5]->dispMatrix(ofPoint(100,400),200);//debug
     tri.draw();
     gm.dispDebug();//debug
 
-    
-    //    ofDrawCircle(ofPoint(ofGetMouseX(),ofGetMouseY()), 10);// debug
-    
-    
-
-    
-    
-    
 }
 
 //--------------------------------------------------------------
@@ -79,9 +66,6 @@ void ofApp::keyPressed(int key){
 
 //    if(ch == '1')  ldisp.moveDataToLeft01();
 //    if(ch == '2')  ldisp.moveDataToRight01();
-
-    
-    
 
 }
 

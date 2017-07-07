@@ -35,9 +35,9 @@ void GameManager::updateInputStatus(Status st[2]){
 }
 
 void GameManager::updateGameLogic(){
+    //player
     player1.update();
     player2.update();
-
     if(in1.sw) player1.jump();
     if(in2.sw) player2.jump();
     int rotateThreshold = 10;
@@ -46,9 +46,10 @@ void GameManager::updateGameLogic(){
     if(in2.pos >rotateThreshold) player2.move(1,0);
     if(in2.pos <-rotateThreshold) player2.move(-1,0);
 
-    
+    //stage
     if(ofGetFrameNum()%4==0) stage.moveLeft();
-    
+
+    //collision judge
     checkCollision();
 }
 
@@ -72,19 +73,8 @@ void GameManager::dispDebug(){
 
 //helper
 void GameManager::checkCollision(){
-
-    int x1 = player1.posX;
-    int y1 = player1.posY;
-    int x2 = player2.posX;
-    int y2 = player2.posY;
-    
-    if(stage.buffer[y1][x1]){
-        player1.dead();
-    }
-    if(stage.buffer[y2][x2]){
-        player2.dead();
-    }
-    
+    if(stage.buffer[player1.posY][player1.posX]) player1.dead();
+    if(stage.buffer[player2.posY][player2.posX]) player2.dead();
 }
 
 

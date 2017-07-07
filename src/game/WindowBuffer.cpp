@@ -32,8 +32,8 @@ void GameWindowBuffer::setPlayer(Player player1, Player player2)
 		buffer[player2.posY - 1][player2.posX] = 1;
 	}
     //カーソル
-    if((player1.time/20)%10!=0) buffer[0][player1.posX] = 1;
-    if((player2.time/20)%10!=0) buffer[0][player2.posX] = 1;
+    if((player1.time/10)%5!=0) buffer[0][player1.posX] = 1;
+    if((player2.time/10)%5!=0) buffer[0][player2.posX] = 1;
 
 }
 
