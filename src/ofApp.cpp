@@ -6,18 +6,17 @@ void ofApp::setup(){
     ofSetFrameRate(30);
     ofBackground(255, 255, 255);
     
-    
-    //create font book
-    for(unsigned char ch = 0;ch<128;ch++){
-        font[ch] =*new FontTo8x8(ch);
-        
-    }
 
     
-    
+#ifndef DEBUG_TRI
     //set TRI
     tri.open("tty.usbmodem1421");
+#else
+    debugStatus[0] = Status();
+    debugStatus[1] = Status();
+#endif
     
+#ifndef DEBUG_RED
     //set RED
     red0.setID((int)0);
     red0.open("tty.usbserial-A105AC6A");
@@ -25,23 +24,7 @@ void ofApp::setup(){
     red1.open("tty.usbserial-A105ABLP");
     red2.setID((int)2);
     red2.open("tty.usbserial-AK05ATII");
-    
-    
-    
-    //ldisp
-    //    string str = "hello, everyone!";
-    string str = "0-------1-------2-------";
-    TextContent tx(str);
-    ldisp.setText(tx);
-    
-    
-    
-    
-    //game manager
-
-    
-    
-    
+#endif
     
     
 }
@@ -53,15 +36,9 @@ void ofApp::update(){
     //TRI loding
     tri.update();
     
-    //(option) TRI control test
-//    if(tri.status[0].pos<-20)   ldisp.moveDataToLeft01();
-//    if(tri.status[0].pos>20)   ldisp.moveDataToRight01();
-//    if(tri.status[1].pos<-20)   ldisp.moveDataToLeft01();
-//    if(tri.status[1].pos>20)   ldisp.moveDataToRight01();
-
-    
     //GameManager
     gm.updateInputStatus(tri.status);
+//    gm.updateInputStatus(debugStatus);
     gm.updateGameLogic();
     gm.updateWindowBuffer();
     
@@ -84,7 +61,6 @@ void ofApp::draw(){
     ldisp.display(ofPoint(100,200));
     ldisp.lmats[5]->dispMatrix(ofPoint(100,400),200);//debug
     tri.draw();
-    
     gm.dispDebug();//debug
 
     
@@ -100,12 +76,12 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     char ch = (char) key;
-    //    lmat.setData(font[ch].data);
-//    ldisp.addDataAtLast(font[ch].data);
-    
-    if(ch == '1')  ldisp.moveDataToLeft01();
-    if(ch == '2')  ldisp.moveDataToRight01();
 
+//    if(ch == '1')  ldisp.moveDataToLeft01();
+//    if(ch == '2')  ldisp.moveDataToRight01();
+
+    
+    
 
 }
 
@@ -126,12 +102,15 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
+    debugStatus[0].sw = true;
+
     
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-    
+    debugStatus[0].sw = false;
+
 }
 
 //--------------------------------------------------------------

@@ -32,7 +32,10 @@ void Player::jump(){
 }
 
 void Player::dead(){
-    if(!isJump()) time = 0;
+    if(!isJump()){
+        time = 0;
+        timeJumpStart = -10000;
+    }
 }
 
 
@@ -40,6 +43,22 @@ void Player::dead(){
 void Player::updateTime(){
     time++;
 }
+
+void Player::dispDebug(){
+    string msg;
+    
+    //status
+    msg += "time: "+ to_string(time) + ", ";
+    msg += "timeJumpStart: "+ to_string(timeJumpStart) + ", ";
+    msg += "isJump(): "+ to_string(isJump()) + "\n";
+//    return msg;
+//    cout << msg << endl;
+    ofSetColor(0);
+    ofDrawBitmapString(msg, 400, 50);
+    
+}
+
+
 
 void Player::setPos(int x, int y){
     posX=x;

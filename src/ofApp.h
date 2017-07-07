@@ -11,6 +11,12 @@
 #include "game/GameManager.hpp"
 
 
+
+//debug condition
+//#define DEBUG_TRI
+//#define DEBUG_RED
+
+
 class ofApp : public ofBaseApp{
     
 public:
@@ -32,13 +38,12 @@ public:
     
 //    LEDMatrix lmat;
     LineDisplay ldisp;
-
+    FontTo8x8 font[128];//font-book
     REDModule red0,red1,red2;
     TwistedRingInterface tri;
-    
     GameManager gm;
     
+    Status debugStatus[2];
     
-    FontTo8x8 font[128];//font-book
 
 };

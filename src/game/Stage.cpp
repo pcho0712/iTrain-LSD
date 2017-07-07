@@ -11,7 +11,7 @@
 Stage::Stage(){
 //    setRandomBuffer();//debug
     setGround();
-    setRandomWall(0.8);
+    setRandomWall(0.9);
 }
 
 void Stage::moveLeft(){

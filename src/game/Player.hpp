@@ -10,6 +10,7 @@
 #define Player_hpp
 
 #include <stdio.h>
+#include <ofMain.h>
 
 
 class Player{
@@ -30,6 +31,7 @@ public:
     void restrictPosition();
     void setPos(int,int);
     void updateTime();
+    void dispDebug();
     //jump
     long jumpDuration = 30;
     long timeJumpStart = -1000;
